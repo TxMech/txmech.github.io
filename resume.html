@@ -6,58 +6,112 @@
     <title>Resume | Alex Castillo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0a0a0a; color: #ededed; font-family: 'Inter', sans-serif; }
+        body { background-color: #050505; color: #a1a1aa; font-family: 'Inter', sans-serif; }
+        .resume-container { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 24px; }
+        .section-title { color: #3b82f6; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 1.5rem; }
     </style>
 </head>
 <body class="p-4 md:p-12">
     <div class="max-w-4xl mx-auto">
-        <a href="index.html" class="text-blue-500 hover:text-blue-400 mb-8 inline-block transition-colors">
-            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        
+        <a href="index.html" class="text-gray-500 hover:text-white mb-8 inline-flex items-center gap-2 transition-colors font-medium">
+            <i class="fas fa-arrow-left text-xs"></i> Back to Portfolio
         </a>
 
-        <div class="w-full h-48 md:h-64 rounded-2xl overflow-hidden mb-12 border border-white/10 relative">
-            <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 flex items-center justify-center">
-                <h1 class="text-5xl font-black text-white tracking-widest uppercase">Resume</h1>
+        <div class="w-full h-48 md:h-64 rounded-3xl overflow-hidden mb-12 border border-white/5 relative shadow-2xl">
+            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover opacity-30 grayscale">
+            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-[#050505] to-transparent">
+                <h1 class="text-6xl font-black text-white tracking-tighter uppercase italic opacity-90">Resume</h1>
             </div>
         </div>
 
         <div class="flex justify-center mb-16">
-            <a href="resume.pdf" download class="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-gray-200 transition-all shadow-lg">
-                DOWNLOAD RESUME PDF
+            <a href="resume.pdf" download class="bg-white text-black px-10 py-4 rounded-full font-black hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+                DOWNLOAD PDF VERSION
             </a>
         </div>
 
-        <div class="bg-[#111] p-8 md:p-12 rounded-2xl border border-white/5 shadow-2xl">
-            <div class="border-b border-white/10 pb-6 mb-8">
-                <h2 class="text-3xl font-bold text-white">Alex Castillo</h2>
-                <p class="text-gray-400 mt-2">Mechanical Engineering Student | Production Associate at Tesla</p>
+        <div class="resume-container p-8 md:p-16 shadow-2xl mb-20">
+            
+            <div class="border-b border-white/10 pb-10 mb-10 text-center md:text-left">
+                <h2 class="text-4xl font-bold text-white mb-2">Alex Castillo</h2>
+                <p class="text-blue-500 font-medium tracking-wide">Mechanical Engineering Student | Production Associate at Tesla</p>
+                <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-xs text-gray-500">
+                    <span><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
+                    <span><i class="fas fa-envelope"></i> alexleecastillo@gmail.com</span>
+                    <a href="https://github.com/TxMech" class="hover:text-white underline">GitHub</a>
+                </div>
             </div>
 
-            <section class="mb-10">
-                <h3 class="text-blue-500 font-bold uppercase tracking-widest mb-4">Work Experience</h3>
-                <div class="mb-6">
-                    <div class="flex justify-between items-start">
-                        <h4 class="text-white font-bold">TESLA | Production Associate</h4>
-                        <span class="text-gray-500 text-sm italic">03/2025 – Present</span>
+            <section class="mb-12">
+                <h3 class="section-title">Work Experience</h3>
+                
+                <div class="space-y-10">
+                    <div>
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h4 class="text-white font-bold text-lg italic">Tesla — Production Associate</h4>
+                            <span class="text-gray-500 text-xs font-mono">03/2025 – Present</span>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 ml-4 list-disc">
+                            <li>Support daily manufacturing operations in high-tech automotive production[cite: 7, 8, 10].</li>
+                            <li>Collaborate with engineers and technicians on troubleshooting and continuous improvement[cite: 12].</li>
+                        </ul>
                     </div>
-                    <ul class="list-disc ml-5 mt-2 text-gray-400 text-sm space-y-1">
-                        <li>Support daily manufacturing operations in high-tech automotive production[cite: 7, 8, 10].</li>
-                        <li>Collaborate on equipment operation and workflow improvement processes[cite: 11, 12].</li>
-                    </ul>
+
+                    <div>
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h4 class="text-white font-bold text-lg italic">Tesla — Manufacturing Development Intern</h4>
+                            <span class="text-gray-500 text-xs font-mono">01/2025 – 03/2025</span>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 ml-4 list-disc">
+                            <li>Completed intensive technical training in electronics, pneumatics, and PLCs[cite: 15, 17].</li>
+                            <li>Participated in lab projects focused on real-world technical applications[cite: 19].</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                            <h4 class="text-white font-bold text-lg italic">Domino's — Senior Manager</h4>
+                            <span class="text-gray-500 text-xs font-mono">07/2023 – 01/2025</span>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-2 ml-4 list-disc">
+                            <li>Supervised and delegated tasks to team members during high-volume shifts[cite: 21, 22].</li>
+                            <li>Balanced time management, inventory control, and equipment upkeep[cite: 24].</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
-            <section class="mb-10">
-                <h3 class="text-blue-500 font-bold uppercase tracking-widest mb-4">Education</h3>
-                <div class="flex justify-between items-start">
-                    <h4 class="text-white font-bold">AUSTIN COMMUNITY COLLEGE</h4>
-                    <span class="text-gray-500 text-sm italic">Expected Jan 2029</span>
+            <section class="mb-12">
+                <h3 class="section-title">Technical Projects</h3>
+                <div class="space-y-8">
+                    <div>
+                        <h4 class="text-white font-bold">6-DOF Robotic Arm Development</h4>
+                        <p class="text-sm text-gray-400 mt-2">Designed and engineered a six-axis arm using SolidWorks for complex mechanical assembly and iterative weight optimization[cite: 31, 32, 33].</p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">3D Printer Environment & Ventilation</h4>
+                        <p class="text-sm text-gray-400 mt-2">Integrated a specialized filtration system with an enclosure to manage VOCs and particles while optimizing airflow paths[cite: 35, 36, 37].</p>
+                    </div>
                 </div>
-                <p class="text-gray-400 text-sm italic">B.S. Mechanical Engineering | GPA: 3.0/4.0 [cite: 55, 56, 58]</p>
             </section>
+
+            <section>
+                <h3 class="section-title">Education</h3>
+                <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
+                    <h4 class="text-white font-bold">Austin Community College</h4>
+                    <span class="text-gray-500 text-xs font-mono">Expected 2029</span>
+                </div>
+                <p class="text-sm text-gray-400">B.S. Mechanical Engineering | 3.0 GPA [cite: 55, 56, 58]</p>
+            </section>
+
         </div>
     </div>
+
+    <footer class="text-center py-12 text-gray-700 text-xs tracking-widest uppercase">
+        Alex Castillo &copy; 2026
+    </footer>
 </body>
 </html>

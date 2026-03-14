@@ -6,112 +6,115 @@
     <title>Resume | Alex Castillo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #a1a1aa; font-family: 'Inter', sans-serif; }
-        .resume-container { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 24px; }
-        .section-title { color: #3b82f6; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 1.5rem; }
+        body { background-color: #ffffff; color: #111111; font-family: 'Inter', sans-serif; line-height: 1.5; }
+        .resume-page { max-width: 900px; margin: 0 auto; background: white; padding: 40px; }
+        h1 { font-size: 2.25rem; font-weight: 700; color: #000; }
+        h2 { font-size: 1.25rem; font-weight: 600; border-bottom: 1px solid #111; padding-bottom: 4px; margin-top: 1.5rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .job-title { font-weight: 700; font-size: 1rem; }
+        .job-sub { font-style: italic; color: #333; }
+        .date { font-weight: 500; color: #000; }
+        ul { list-style-type: disc; margin-left: 1.25rem; margin-top: 0.5rem; }
+        li { margin-bottom: 0.25rem; font-size: 0.9rem; color: #111; }
+        .back-btn { background: #000; color: #fff; padding: 8px 16px; border-radius: 4px; text-decoration: none; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 2rem; transition: opacity 0.2s; }
+        .back-btn:hover { opacity: 0.8; }
+        @media print { .back-btn, .download-btn { display: none; } .resume-page { padding: 0; } }
     </style>
 </head>
-<body class="p-4 md:p-12">
-    <div class="max-w-4xl mx-auto">
-        
-        <a href="index.html" class="text-gray-500 hover:text-white mb-8 inline-flex items-center gap-2 transition-colors font-medium">
-            <i class="fas fa-arrow-left text-xs"></i> Back to Portfolio
-        </a>
+<body class="bg-gray-100 py-10">
 
-        <div class="w-full h-48 md:h-64 rounded-3xl overflow-hidden mb-12 border border-white/5 relative shadow-2xl">
-            <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000" class="w-full h-full object-cover opacity-30 grayscale">
-            <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-[#050505] to-transparent">
-                <h1 class="text-6xl font-black text-white tracking-tighter uppercase italic opacity-90">Resume</h1>
+    <div class="max-w-4xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-6">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Portfolio</a>
+            <a href="resume.pdf" download class="download-btn bg-blue-600 text-white px-4 py-2 rounded text-sm font-bold hover:bg-blue-700 transition-all">Download PDF</a>
+        </div>
+
+        <div class="resume-page shadow-2xl">
+            <div class="flex justify-between items-baseline mb-2">
+                <h1>Alex Castillo</h1>
+                <div class="text-right text-sm">
+                    <p><strong>Portfolio:</strong> txmech.github.io | <strong>LinkedIn:</strong> linkedin.com/in/alex-castillo-a56338315/ | <strong>Email:</strong> alexleecastillo@gmail.com</p>
+                </div>
             </div>
-        </div>
+            <p class="text-sm italic mb-8">Seeking a mechanical engineering internship for Summer 2026 to leverage technical problem solving and leadership skills. [cite: 6]</p>
 
-        <div class="flex justify-center mb-16">
-            <a href="resume.pdf" download class="bg-white text-black px-10 py-4 rounded-full font-black hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-                DOWNLOAD PDF VERSION
-            </a>
-        </div>
+            <h2>Education</h2>
+            <div class="flex justify-between items-baseline">
+                <p><span class="job-title uppercase">Austin Community College</span>, Austin, TX</p>
+                <p class="date">Expected graduation: Jan 2029 [cite: 55, 57]</p>
+            </div>
+            <div class="flex justify-between items-baseline mt-1">
+                <p class="job-sub text-sm">B.S Mechanical Engineering, Freshman [cite: 55, 57]</p>
+                <p class="text-sm font-semibold">GPA: 3.0/4.0 [cite: 58]</p>
+            </div>
 
-        <div class="resume-container p-8 md:p-16 shadow-2xl mb-20">
+            <h2>Work Experience</h2>
             
-            <div class="border-b border-white/10 pb-10 mb-10 text-center md:text-left">
-                <h2 class="text-4xl font-bold text-white mb-2">Alex Castillo</h2>
-                <p class="text-blue-500 font-medium tracking-wide">Mechanical Engineering Student | Production Associate at Tesla</p>
-                <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-4 text-xs text-gray-500">
-                    <span><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
-                    <span><i class="fas fa-envelope"></i> alexleecastillo@gmail.com</span>
-                    <a href="https://github.com/TxMech" class="hover:text-white underline">GitHub</a>
+            <div class="mb-6">
+                <div class="flex justify-between items-baseline">
+                    <p><span class="job-title uppercase">TESLA</span> | <span class="job-sub">Production Associate</span></p>
+                    <p class="date text-sm">03/2025 – Current [cite: 7]</p>
                 </div>
+                <ul>
+                    <li>Support daily manufacturing operations in a high-tech automotive production environment. [cite: 10]</li>
+                    <li>Assist with equipment operation, quality checks, and workflow improvement processes. [cite: 11]</li>
+                    <li>Collaborate with engineers and technicians on troubleshooting and continuous improvement initiatives. [cite: 12]</li>
+                    <li>Maintain strict adherence to safety and cleanliness standards in fast-paced production. [cite: 13]</li>
+                </ul>
             </div>
 
-            <section class="mb-12">
-                <h3 class="section-title">Work Experience</h3>
-                
-                <div class="space-y-10">
-                    <div>
-                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
-                            <h4 class="text-white font-bold text-lg italic">Tesla — Production Associate</h4>
-                            <span class="text-gray-500 text-xs font-mono">03/2025 – Present</span>
-                        </div>
-                        <ul class="text-sm text-gray-400 space-y-2 ml-4 list-disc">
-                            <li>Support daily manufacturing operations in high-tech automotive production[cite: 7, 8, 10].</li>
-                            <li>Collaborate with engineers and technicians on troubleshooting and continuous improvement[cite: 12].</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
-                            <h4 class="text-white font-bold text-lg italic">Tesla — Manufacturing Development Intern</h4>
-                            <span class="text-gray-500 text-xs font-mono">01/2025 – 03/2025</span>
-                        </div>
-                        <ul class="text-sm text-gray-400 space-y-2 ml-4 list-disc">
-                            <li>Completed intensive technical training in electronics, pneumatics, and PLCs[cite: 15, 17].</li>
-                            <li>Participated in lab projects focused on real-world technical applications[cite: 19].</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
-                            <h4 class="text-white font-bold text-lg italic">Domino's — Senior Manager</h4>
-                            <span class="text-gray-500 text-xs font-mono">07/2023 – 01/2025</span>
-                        </div>
-                        <ul class="text-sm text-gray-400 space-y-2 ml-4 list-disc">
-                            <li>Supervised and delegated tasks to team members during high-volume shifts[cite: 21, 22].</li>
-                            <li>Balanced time management, inventory control, and equipment upkeep[cite: 24].</li>
-                        </ul>
-                    </div>
+            <div class="mb-6">
+                <div class="flex justify-between items-baseline">
+                    <p><span class="job-title uppercase">TESLA</span> | <span class="job-sub">Manufacturing Development Intern</span></p>
+                    <p class="date text-sm">01/2025 – 03/2025 [cite: 15]</p>
                 </div>
-            </section>
+                <ul>
+                    <li>Completed training in electronics, pneumatics, PLCs, and automation fundamentals via ACC. [cite: 17, 20]</li>
+                    <li>Gained hands-on knowledge of manufacturing systems, terminology, and safety protocols. [cite: 18]</li>
+                    <li>Participated in lab projects and simulations focused on real-world technical applications. [cite: 19]</li>
+                </ul>
+            </div>
 
-            <section class="mb-12">
-                <h3 class="section-title">Technical Projects</h3>
-                <div class="space-y-8">
-                    <div>
-                        <h4 class="text-white font-bold">6-DOF Robotic Arm Development</h4>
-                        <p class="text-sm text-gray-400 mt-2">Designed and engineered a six-axis arm using SolidWorks for complex mechanical assembly and iterative weight optimization[cite: 31, 32, 33].</p>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold">3D Printer Environment & Ventilation</h4>
-                        <p class="text-sm text-gray-400 mt-2">Integrated a specialized filtration system with an enclosure to manage VOCs and particles while optimizing airflow paths[cite: 35, 36, 37].</p>
-                    </div>
+            <div class="mb-6">
+                <div class="flex justify-between items-baseline">
+                    <p><span class="job-title uppercase">DOMINO'S</span> | <span class="job-sub">Senior Manager</span></p>
+                    <p class="date text-sm">07/2023 – 01/2025 [cite: 21]</p>
                 </div>
-            </section>
+                <ul>
+                    <li>Supervised and delegated tasks to team members during high-volume shifts. [cite: 22]</li>
+                    <li>Trained new employees and managed scheduling to ensure smooth operations. [cite: 23]</li>
+                    <li>Balanced time management, inventory control, and equipment upkeep under pressure. [cite: 24]</li>
+                </ul>
+            </div>
 
-            <section>
-                <h3 class="section-title">Education</h3>
-                <div class="flex flex-col md:flex-row justify-between md:items-center mb-2">
-                    <h4 class="text-white font-bold">Austin Community College</h4>
-                    <span class="text-gray-500 text-xs font-mono">Expected 2029</span>
-                </div>
-                <p class="text-sm text-gray-400">B.S. Mechanical Engineering | 3.0 GPA [cite: 55, 56, 58]</p>
-            </section>
+            <h2>Projects</h2>
+            
+            <div class="mb-4">
+                <p><span class="job-title uppercase">6 DOF Robotic Arm Development</span></p>
+                <ul>
+                    <li>Designed and engineered a 6 Degree of Freedom (DOF) robotic arm focusing on structural integrity and joint articulation. [cite: 31, 32]</li>
+                    <li>Utilized SolidWorks for complex mechanical assembly and iterative design cycles to optimize weight. [cite: 33]</li>
+                    <li>Executed rapid prototyping of custom parts, managing high-tolerance fits and material selection. [cite: 34]</li>
+                </ul>
+            </div>
 
+            <div class="mb-4">
+                <p><span class="job-title uppercase">3D Printer Environment & Ventilation Integration</span></p>
+                <ul>
+                    <li>Integrated a specialized filtration system with an enclosure for a 3D printer to manage VOCs and particles. [cite: 35, 36]</li>
+                    <li>Analyzed and optimized airflow paths to maintain stable internal print temperatures while exhausting fumes. [cite: 37]</li>
+                </ul>
+            </div>
+
+            <h2>Skills</h2>
+            <p class="text-sm">
+                <strong>CAD & Drafting:</strong> SolidWorks, Process Improvement, Quality Control [cite: 48, 49, 51]<br>
+                <strong>Manufacturing:</strong> Lean practices, Electronics, Pneumatics, PLCs, Automation Fundamentals [cite: 17, 52]<br>
+                <strong>Software:</strong> Python, Microsoft Office Suite, Computer Skills [cite: 5, 43]
+            </p>
         </div>
     </div>
 
-    <footer class="text-center py-12 text-gray-700 text-xs tracking-widest uppercase">
-        Alex Castillo &copy; 2026
-    </footer>
 </body>
 </html>

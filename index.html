@@ -11,7 +11,6 @@
         body { background-color: #050505; color: #a1a1aa; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .bento-card { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 20px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .bento-card:hover { border-color: #3b82f6; transform: translateY(-4px); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2); }
-        .text-gradient { background: linear-gradient(to right, #fff, #71717a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .timeline-line::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6 0%, #1f1f1f 100%); }
         @media (min-width: 768px) { .timeline-line::before { left: 50%; } }
     </style>
@@ -21,9 +20,18 @@
     <div class="max-w-5xl mx-auto">
         <header class="mb-16 text-center md:text-left">
             <h1 class="text-5xl font-bold text-white tracking-tight mb-4">Alex Castillo</h1>
-            <p class="text-xl text-gray-400 max-w-2xl">Mechanical Engineering student focused on high-volume manufacturing and robotic development[cite: 4]. Currently at <span class="text-white font-semibold italic">Tesla</span>[cite: 8].</p>
+            <p class="text-xl text-gray-400 max-w-2xl">Mechanical Engineering student at ACC focused on high-volume manufacturing and robotic development. Currently at <span class="text-white font-semibold italic">Tesla</span>.</p>
             
-            <div class="flex flex-wrap justify-center md:justify-start gap-6 mt-8 text-sm font-medium">
+            <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
+                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2">
+                    <i class="fas fa-project-diagram"></i> View Projects
+                </a>
+                <a href="resume.pdf" target="_blank" class="bg-[#161616] border border-white/10 hover:border-white/30 text-white px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2">
+                    <i class="fas fa-file-download"></i> Download Resume (PDF)
+                </a>
+            </div>
+
+            <div class="flex flex-wrap justify-center md:justify-start gap-6 mt-10 text-sm font-medium">
                 <a href="https://www.linkedin.com/in/alex-castillo-a56338315/" class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 <a href="https://github.com/TxMech" class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-github"></i> GitHub</a>
                 <span class="flex items-center gap-2 text-gray-500"><i class="fas fa-map-marker-alt"></i> Austin, TX</span>
@@ -31,108 +39,80 @@
             </div>
         </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <div class="bento-card p-8 md:col-span-2 flex flex-col justify-center">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Professional Summary</h2>
                 <p class="text-lg text-gray-300 leading-relaxed">
-                    Mechanical Engineering student at Austin Community College with a background in high-volume manufacturing at Tesla[cite: 4, 56]. I specialize in **SolidWorks**, **Python**, and **rapid prototyping**, focusing on iterative design and mechanical development[cite: 5].
+                    Mechanical Engineering student proficient in **SolidWorks**, **Python**, and **rapid prototyping**. Focused on iterative design and mechanical development for innovative engineering teams.
                 </p>
             </div>
 
-            <div class="bento-card p-8">
+            <div class="bento-card p-8 text-center md:text-left">
                 <h2 class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-6">Technical Arsenal</h2>
                 <div class="space-y-4">
-                    <div>
-                        <p class="text-xs text-gray-500 mb-2 uppercase">Design</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">SolidWorks [cite: 5]</span>
-                            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">CAD/Drafting [cite: 48]</span>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-xs text-gray-500 mb-2 uppercase">Systems</p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Robotics [cite: 31]</span>
-                            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Lean Manufacturing [cite: 52]</span>
-                            <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Python [cite: 5]</span>
-                        </div>
+                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">SolidWorks</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Python</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">CAD/CAM</span>
+                        <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Lean Manufacturing</span>
                     </div>
                 </div>
             </div>
 
             <div class="bento-card overflow-hidden md:col-span-2 group">
-                <div class="h-64 bg-[#111] flex items-center justify-center border-b border-white/5 relative">
-                    <span class="text-gray-700 font-mono text-xs uppercase tracking-widest group-hover:text-blue-500 transition-colors">6-DOF Component Render Preview</span>
-                    </div>
+                <div class="h-64 bg-[#111] flex items-center justify-center border-b border-white/5 relative italic text-gray-700">
+                    [6-DOF Project Render Preview]
+                </div>
                 <div class="p-8">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-2xl font-bold text-white">6-DOF Robotic Arm</h3>
-                        <span class="text-xs font-mono bg-blue-500/10 text-blue-500 px-2 py-1 rounded">Project [cite: 31]</span>
-                    </div>
-                    <p class="text-gray-400">Engineered for structural integrity and joint articulation[cite: 32]. Utilized SolidWorks for complex assembly and iterative design to optimize weight[cite: 33].</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">6-DOF Robotic Arm</h3>
+                    <p class="text-gray-400">Designed and engineered a 6 Degree of Freedom (DOF) robotic arm, focusing on structural integrity and joint articulation for precise movement.</p>
                 </div>
             </div>
 
             <div class="bento-card p-8">
-                <h3 class="text-xl font-bold text-white mb-2">3D Printer Environment</h3>
-                <p class="text-sm text-gray-400 mb-4">Integrated specialized filtration for 3D printer enclosures to manage VOCs and particles[cite: 35, 36].</p>
-                <ul class="text-xs text-gray-500 space-y-2">
-                    <li>• Optimized airflow paths [cite: 37]</li>
-                    <li>• Active extraction protocols [cite: 38]</li>
-                </ul>
+                <h3 class="text-xl font-bold text-white mb-2 italic">3D Printer Environment</h3>
+                <p class="text-sm text-gray-400 mb-4">Integrated specialized filtration to manage VOCs and ultra-fine particles.</p>
+                <p class="text-xs text-gray-500 italic">Optimized airflow paths for thermal stability.</p>
             </div>
 
             <div class="bento-card p-8 md:col-span-3">
-                <h2 class="text-3xl font-bold text-white mb-12 text-center">The Timeline</h2>
-                
+                <h2 class="text-3xl font-bold text-white mb-12 text-center">The Journey</h2>
                 <div class="relative timeline-line">
                     
-                    <div class="mb-12 flex justify-between items-center w-full md:flex-row-reverse left-timeline">
+                    <div class="mb-12 flex justify-between items-center w-full md:flex-row-reverse">
                         <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-blue-500 shadow-xl w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
+                        <div class="z-20 flex items-center order-1 bg-blue-500 w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
                             <i class="fas fa-graduation-cap text-white mx-auto text-xs"></i>
                         </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl shadow-xl w-full md:w-5/12 px-6 py-4">
+                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl w-full md:w-5/12 px-6 py-4">
                             <h3 class="font-bold text-white text-lg">B.S. Mechanical Engineering</h3>
-                            <p class="text-sm text-blue-400">Austin Community College (Expected 2029) [cite: 55, 56]</p>
-                            <p class="text-xs text-gray-500 mt-2">Focus on technical problem solving and mechanical development[cite: 6].</p>
+                            <p class="text-sm text-blue-400">Austin Community College (Expected 2029) </p>
+                            <p class="text-xs text-gray-500 mt-2">Freshman with a 3.0 GPA.</p>
                         </div>
                     </div>
 
-                    <div class="mb-12 flex justify-between items-center w-full right-timeline">
+                    <div class="mb-12 flex justify-between items-center w-full">
                         <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-white shadow-xl w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
+                        <div class="z-20 flex items-center order-1 bg-white w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
                             <i class="fas fa-car-side text-black mx-auto text-xs"></i>
                         </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl shadow-xl w-full md:w-5/12 px-6 py-4">
+                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl w-full md:w-5/12 px-6 py-4">
                             <h3 class="font-bold text-white text-lg">Production Associate</h3>
-                            <p class="text-sm text-gray-400">Tesla [cite: 7, 8]</p>
-                            <p class="text-xs text-gray-500 mt-2">Supporting daily manufacturing and quality improvement initiatives for high-volume production[cite: 10, 12].</p>
+                            <p class="text-sm text-gray-400">Tesla (03/2025 - Present) </p>
+                            <p class="text-xs text-gray-500 mt-2">Supporting manufacturing operations and quality checks at Giga Texas.</p>
                         </div>
                     </div>
 
-                    <div class="mb-12 flex justify-between items-center w-full md:flex-row-reverse left-timeline">
+                    <div class="mb-12 flex justify-between items-center w-full md:flex-row-reverse">
                         <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-gray-600 shadow-xl w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
-                            <i class="fas fa-cog text-white mx-auto text-xs"></i>
-                        </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl shadow-xl w-full md:w-5/12 px-6 py-4">
-                            <h3 class="font-bold text-white text-lg">Manufacturing Development Intern</h3>
-                            <p class="text-sm text-gray-400">Tesla (via ACC) [cite: 15, 20]</p>
-                            <p class="text-xs text-gray-500 mt-2">Training in electronics, pneumatics, PLCs, and automation fundamentals[cite: 17].</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-12 flex justify-between items-center w-full right-timeline">
-                        <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-red-600 shadow-xl w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
+                        <div class="z-20 flex items-center order-1 bg-red-600 w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
                             <i class="fas fa-users text-white mx-auto text-xs"></i>
                         </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl shadow-xl w-full md:w-5/12 px-6 py-4">
+                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl w-full md:w-5/12 px-6 py-4">
                             <h3 class="font-bold text-white text-lg">Senior Manager</h3>
-                            <p class="text-sm text-gray-400">Domino's [cite: 21]</p>
-                            <p class="text-xs text-gray-500 mt-2">Led operations and supervised team members during high-volume shifts[cite: 22, 25].</p>
+                            <p class="text-sm text-gray-400">Domino's (07/2023 - 01/2025) </p>
+                            <p class="text-xs text-gray-500 mt-2">Developed leadership and delegating skills in a fast-paced environment.</p>
                         </div>
                     </div>
 
@@ -141,9 +121,8 @@
 
         </div>
 
-        <footer class="mt-24 pb-12 text-center border-t border-white/5 pt-8">
-            <p class="text-gray-600 text-sm italic">"Iterate until it works."</p>
-            <p class="text-gray-700 text-xs mt-2">&copy; 2026 Alex Castillo. Built for the Summer 2026 Internship Hunt.</p>
+        <footer class="mt-24 pb-12 text-center border-t border-white/5 pt-8 text-xs text-gray-700">
+            &copy; 2026 Alex Castillo. Built for the Summer 2026 Internship Hunt.
         </footer>
     </div>
 

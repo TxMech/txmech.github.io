@@ -35,7 +35,7 @@
             text-align: center;
         }
 
-        /* Hero */
+        /* Hero Header */
         header {
             height: 50vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1500&q=80');
@@ -87,48 +87,69 @@
             margin-left: 20px;
         }
 
-        /* Horizontal Life Journey Bar */
+        /* Custom Hand-Drawn Style Journey Bar */
         .journey-container {
             overflow-x: auto;
-            padding: 40px 0;
-            margin: 20px 0;
+            padding: 60px 20px;
+            margin-top: 20px;
         }
 
-        .journey-bar {
+        .journey-wrapper {
             display: flex;
             align-items: center;
-            min-width: 800px;
-            position: relative;
+            min-width: 950px;
             margin: 0 auto;
+            position: relative;
         }
 
-        .journey-bar::before {
-            content: '';
+        .journey-line {
             position: absolute;
-            height: 4px;
-            background: var(--border-color);
+            height: 3px;
+            background: var(--text-color);
             width: 100%;
+            top: 50%;
             z-index: 1;
         }
 
-        .journey-node { flex: 1; position: relative; z-index: 2; }
-        
-        .node-circle {
-            width: 25px; height: 25px;
+        .journey-box {
+            background: var(--card-bg);
+            border: 2px solid var(--text-color);
+            padding: 15px 20px;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+            display: inline-block;
+            box-shadow: 4px 4px 0px var(--border-color);
+        }
+
+        .sub-box {
+            font-size: 0.85rem;
+            padding: 8px 12px;
+            margin-top: 15px;
+            background: var(--secondary-bg);
+        }
+
+        .branch-line {
+            position: absolute;
+            width: 2px;
+            background: var(--text-color);
+            height: 15px;
+            left: 50%;
+            bottom: -15px;
+        }
+
+        .connector { flex-grow: 1; }
+
+        /* Current Status Box */
+        .current-box {
             background: var(--accent-color);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 4px solid var(--bg-color);
+            color: white;
+            border-color: var(--accent-color);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
         }
 
-        .journey-node.current .node-circle {
-            background: #28a745;
-            box-shadow: 0 0 15px #28a745;
-        }
-
-        /* Container & Cards */
+        /* Container & Sections */
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        
         section { display: none; }
         section.active { display: block; animation: fadeIn 0.4s; }
 
@@ -149,37 +170,20 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-
         .exp-logo { width: 50px; height: 50px; object-fit: contain; }
 
         /* Form */
         form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
         input, textarea {
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: var(--secondary-bg);
-            color: var(--text-color);
-            font-family: inherit;
+            padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);
+            background: var(--secondary-bg); color: var(--text-color); font-family: inherit;
         }
 
-        /* Bottom Buttons */
-        .bottom-actions {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 40px 0;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
+        /* Footer & Bottom Buttons */
+        .bottom-actions { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
+        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; }
         .btn-primary { background: var(--accent-color); color: white; border: none; }
         .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
 
@@ -206,45 +210,60 @@
         <section id="home" class="active">
             <h2>Summary</h2>
             <div class="card">
-                <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects.</p>
+                <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects. [cite: 5, 12]</p>
             </div>
             
             <h2>Life Journey</h2>
             <div class="journey-container">
-                <div class="journey-bar">
-                    <div class="journey-node">
-                        <div class="node-circle"></div>
-                        <strong>Start</strong><br><small>H-E-B</small>
+                <div class="journey-wrapper">
+                    <div class="journey-line"></div>
+                    
+                    <div style="display: flex; flex-direction: column; align-items: center; position: relative;">
+                        <div class="journey-box">High-School</div>
+                        <div style="display: flex; gap: 20px; margin-top: 15px;">
+                            <div class="journey-box sub-box">HEB</div>
+                            <div class="journey-box sub-box">Domino's</div>
+                        </div>
                     </div>
-                    <div class="journey-node">
-                        <div class="node-circle"></div>
-                        <strong>Tesla</strong><br><small>Production Associate</small>
+
+                    <div class="connector"></div>
+
+                    <div style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="journey-box">Tesla</div>
+                        <div class="journey-box sub-box">Production Associate</div>
                     </div>
-                    <div class="journey-node">
-                        <div class="node-circle"></div>
-                        <strong>ACC</strong><br><small>Engineering</small>
-                    </div>
-                    <div class="journey-node current">
-                        <div class="node-circle"></div>
-                        <strong>Current</strong><br><small>Seeking Internships</small>
-                    </div>
+
+                    <div class="connector"></div>
+
+                    <div class="journey-box">ACC</div>
+
+                    <div class="connector"></div>
+
+                    <div class="journey-box current-box">Search for Internship!!!</div>
                 </div>
             </div>
 
             <h2>Work Experience</h2>
             <div class="card">
                 <div class="exp-item">
-                    <img src="tesla-logo.png" alt="" class="exp-logo">
+                    <img src="tesla-logo.png" alt="Tesla Logo" class="exp-logo">
                     <div>
                         <strong>Tesla | Production Associate</strong>
-                        <p>Jan 2025 - Present | Austin, TX</p>
+                        <p>Jan 2025 - Present | Austin, TX [cite: 26]</p>
                     </div>
                 </div>
                 <div class="exp-item">
-                    <img src="heb-logo.png" alt="" class="exp-logo">
+                    <img src="heb-logo.png" alt="HEB Logo" class="exp-logo">
                     <div>
                         <strong>H-E-B | Customer Service</strong>
-                        <p>Previous Role | Austin area</p>
+                        <p>Austin, TX [cite: 26]</p>
+                    </div>
+                </div>
+                <div class="exp-item">
+                    <img src="dominos-logo.png" alt="Domino's Logo" class="exp-logo">
+                    <div>
+                        <strong>Domino's | Delivery/Service</strong>
+                        <p>Austin area [cite: 26]</p>
                     </div>
                 </div>
             </div>
@@ -253,8 +272,8 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="card">
-                <p>Hi there! My name is Alex Castillo and I'm currently in my journey as a mechanical engineering student.</p>
-                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing.</p>
+                <p>Hi there! My name is Alex Castillo and I'm currently in my journey as a mechanical engineering student. [cite: 15, 16]</p>
+                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing. [cite: 17, 18]</p>
             </div>
         </section>
 
@@ -262,18 +281,19 @@
             <h2>Technical Projects</h2>
             <div class="card">
                 <h3>6-DOF Robotic Arm</h3>
-                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks.</p>
+                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks. [cite: 18, 23]</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
             <div class="card">
+                <p>Feel free to reach out via the form below or through LinkedIn. [cite: 24, 29]</p>
                 <form action="https://formspree.io/f/alex.castillo3@g.austincc.edu" method="POST">
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn-primary btn" style="width:100%; margin-top:10px;">Send Message</button>
+                    <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Send Message</button>
                 </form>
             </div>
         </section>
@@ -286,7 +306,7 @@
     </div>
 
     <footer>
-        <p>@2026 Alex Castillo Summer Internship Hunt</p>
+        <p>@2026 Alex Castillo Summer Internship Hunt [cite: 27]</p>
     </footer>
 
     <script>

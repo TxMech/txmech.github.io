@@ -32,7 +32,7 @@
             padding: 0;
             transition: all 0.3s ease;
             scroll-behavior: smooth;
-            text-align: center; /* Centers headings globally */
+            text-align: center;
         }
 
         /* Hero Section */
@@ -85,47 +85,75 @@
             cursor: pointer;
             font-weight: bold;
             margin-left: 20px;
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
 
-        /* Journey Bar */
-        .journey-container {
-            overflow-x: auto;
-            padding: 40px 0;
-            margin: 20px 0;
-        }
-
-        .journey-bar {
-            display: flex;
-            align-items: center;
-            min-width: 800px;
+        /* Vertical Journey Timeline */
+        .timeline {
             position: relative;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            text-align: left;
         }
 
-        .journey-bar::before {
+        .timeline::after {
             content: '';
             position: absolute;
-            height: 4px;
-            background: var(--border-color);
-            width: 100%;
+            width: 4px;
+            background-color: var(--border-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-color);
+            border: 4px solid var(--accent-color);
+            top: 15px;
+            border-radius: 50%;
             z-index: 1;
         }
 
-        .journey-node { flex: 1; position: relative; z-index: 2; }
-        .node-circle {
-            width: 25px; height: 25px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            border: 4px solid var(--bg-color);
+        .left { left: 0; }
+        .right { left: 50%; }
+        .right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--card-bg);
+            position: relative;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .journey-node.current .node-circle {
-            background: #28a745;
-            box-shadow: 0 0 15px #28a745;
+        .timeline-logo {
+            width: 50px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .current-status::after {
+            background-color: #28a745;
+            border-color: #28a745;
+            box-shadow: 0 0 10px #28a745;
         }
 
         /* Content Containers */
@@ -142,10 +170,10 @@
             border: 1px solid var(--border-color);
             margin-bottom: 40px;
             line-height: 1.8;
-            text-align: left; /* Keeps text readable inside the card */
+            text-align: left;
         }
 
-        /* Centered Bottom Buttons */
+        /* Bottom Buttons */
         .bottom-actions {
             display: flex;
             justify-content: center;
@@ -164,28 +192,17 @@
         .btn-primary { background: var(--accent-color); color: white; border: none; }
         .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
 
-        /* Form */
-        form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
-        input, textarea {
-            padding: 15px;
-            border-radius: 8px;
-            border: 1px solid var(--border-color);
-            background: var(--secondary-bg);
-            color: var(--text-color);
-        }
-
         footer { 
             text-align: center; 
             padding: 40px 0; 
             color: #888; 
             border-top: 1px solid var(--border-color);
-            margin-top: 20px;
         }
     </style>
 </head>
 <body data-theme="light">
 
-    <header id="home-header">
+    <header>
         <h1>ALEX CASTILLO</h1>
         <p>Mechanical Engineering Portfolio</p>
     </header>
@@ -203,27 +220,45 @@
         <section id="home" class="active">
             <h2>Summary</h2>
             <div class="card">
-                <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects[cite: 1, 2].</p>
+                <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing[cite: 5, 18]. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects[cite: 18, 26].</p>
             </div>
             
-            <h2>Experience Journey</h2>
-            <div class="journey-container">
-                <div class="journey-bar">
-                    <div class="journey-node">
-                        <div class="node-circle"></div>
-                        <strong>Early Roles</strong><br><small>Retail & Logistics</small>
+            <h2>Life Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item right current-status">
+                    <div class="timeline-content">
+                        <strong>Current Status</strong>
+                        <p>Seeking Summer 2026 Internships </p>
                     </div>
-                    <div class="journey-node">
-                        <div class="node-circle"></div>
-                        <strong>Tesla</strong><br><small>Production Associate [cite: 1]</small>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <img src="acc-logo.png" alt="ACC Logo" class="timeline-logo">
+                        <div>
+                            <strong>ACC</strong>
+                            <p>Engineering Student [cite: 26]</p>
+                        </div>
                     </div>
-                    <div class="journey-node">
-                        <div class="node-circle"></div>
-                        <strong>ACC</strong><br><small>Engineering Student [cite: 1]</small>
+                </div>
+
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <img src="tesla-logo.png" alt="Tesla Logo" class="timeline-logo">
+                        <div>
+                            <strong>Tesla</strong>
+                            <p>Production Associate [cite: 26]</p>
+                        </div>
                     </div>
-                    <div class="journey-node current">
-                        <div class="node-circle"></div>
-                        <strong>Current Status</strong><br><small>Seeking Internships [cite: 1]</small>
+                </div>
+
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <img src="heb-logo.png" alt="HEB Logo" class="timeline-logo">
+                        <div>
+                            <strong>HEB</strong>
+                            <p>Customer Service [cite: 26]</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -232,8 +267,8 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="card">
-                <p>Hi there! My name is Alex Castillo and I'm currently in my journey as a mechanical engineering student[cite: 1].</p>
-                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing[cite: 1].</p>
+                <p>Hi there! My name is Alex Castillo and I'm currently in my journey as a mechanical engineering student[cite: 16].</p>
+                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic[cite: 17]. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm[cite: 18].</p>
             </div>
         </section>
 
@@ -241,14 +276,13 @@
             <h2>Technical Projects</h2>
             <div class="card">
                 <h3>6-DOF Robotic Arm</h3>
-                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks[cite: 1].</p>
+                <p>Designed and fabricated a fully articulated robotic arm focusing on motor torque calculations and SolidWorks design[cite: 18].</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
             <div class="card">
-                <p>Feel free to reach out via the form below regarding Summer 2026 internship opportunities.</p>
                 <form action="https://formspree.io/f/alex.castillo3@g.austincc.edu" method="POST">
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Email" required>
@@ -259,14 +293,14 @@
         </section>
 
         <div class="bottom-actions">
-            <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
-            <a href="https://www.linkedin.com/in/alex-castillo-a56338315/" target="_blank" class="btn btn-outline">LinkedIn </a>
+            <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume [cite: 13, 19]</a>
+            <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn [cite: 32, 34]</a>
         </div>
 
     </div>
 
     <footer>
-        <p>@2026 Alex Castillo Summer Internship Hunt </p>
+        <p>@2026 Alex Castillo Summer Internship Hunt [cite: 27]</p>
     </footer>
 
     <script>

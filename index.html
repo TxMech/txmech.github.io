@@ -4,124 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Castillo | Mechanical Engineering Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #050505; color: #a1a1aa; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .bento-card { background: #0f0f0f; border: 1px solid #1f1f1f; border-radius: 20px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .bento-card:hover { border-color: #3b82f6; transform: translateY(-4px); box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2); }
-        .timeline-line::before { content: ''; position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #3b82f6 0%, #1f1f1f 100%); }
-        @media (min-width: 768px) { .timeline-line::before { left: 50%; } }
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #2d2d2d;
+            --accent-blue: #004a99; /* Professional Navy Blue */
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: var(--accent-blue);
+            border-bottom: 2px solid var(--accent-blue);
+            padding-bottom: 10px;
+        }
+
+        /* The Journey Timeline */
+        .timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 40px;
+            border-left: 3px solid var(--accent-blue);
+        }
+
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -48px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+        }
+
+        .timeline-logo {
+            max-width: 120px;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            background: white;
+        }
+
+        .project-card {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
     </style>
 </head>
-<body class="p-4 md:p-12">
+<body>
 
-    <div class="max-w-5xl mx-auto">
-        <header class="mb-16 text-center md:text-left">
-            <h1 class="text-5xl font-bold text-white tracking-tight mb-4">Alex Castillo</h1>
-            <p class="text-xl text-gray-400 max-w-2xl">Mechanical Engineering student at ACC [cite: 4, 56] focused on high-volume manufacturing [cite: 4] and robotic development[cite: 31]. Currently at <span class="text-white font-semibold italic">Tesla</span>[cite: 7].</p>
+<header>
+    <h1>Alex Castillo</h1>
+    <p>Aspiring Design Engineer | Mechanical Engineering Student</p>
+</header>
+
+<div class="container">
+    
+    <section id="journey">
+        <h2>The Journey</h2>
+        <div class="timeline">
             
-            <div class="flex flex-wrap justify-center md:justify-start gap-4 mt-8">
-                <a href="#projects" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2 shadow-lg shadow-blue-500/20">
-                    <i class="fas fa-project-diagram"></i> View Projects
-                </a>
-                <a href="resume.html" class="bg-[#161616] border border-white/10 hover:border-white/30 text-white px-6 py-3 rounded-full font-bold transition-all flex items-center gap-2">
-                    <i class="fas fa-file-alt"></i> View Resume
-                </a>
+            <div class="timeline-item">
+                <img src="https://offices.austincc.edu/college-relations-and-marketing/wp-content/uploads/sites/2/2022/08/logo_horizontal.jpg" alt="ACC Logo" class="timeline-logo">
+                <h3>Austin Community College</h3>
+                <p>Developing core engineering foundations in Math, Physics, and CAD Design. Current focus: College Algebra for Pre-Calculus and U.S. History.</p>
             </div>
 
-            <div class="flex flex-wrap justify-center md:justify-start gap-6 mt-10 text-sm font-medium text-gray-500">
-                <a href="https://www.linkedin.com/in/alex-castillo-a56338315/" class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-linkedin"></i> LinkedIn [cite: 2]</a>
-                <a href="https://github.com/TxMech" class="flex items-center gap-2 hover:text-white transition-colors"><i class="fab fa-github"></i> GitHub</a>
-                <span class="flex items-center gap-2"><i class="fas fa-map-marker-alt"></i> Austin, TX [cite: 2]</span>
-            </div>
-        </header>
-
-        <div id="projects" class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            
-            <div class="bento-card p-8 md:col-span-2 flex flex-col justify-center">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-2">Professional Summary</h2>
-                <p class="text-lg text-gray-300 leading-relaxed">
-                    Mechanical Engineering student proficient in **SolidWorks**, **Python**, and **rapid prototyping**[cite: 5]. Focused on iterative design [cite: 5] and mechanical development for innovative engineering teams[cite: 6].
-                </p>
+            <div class="timeline-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla Logo" class="timeline-logo">
+                <h3>Tesla - Production Associate</h3>
+                <p>Hands-on experience in high-volume manufacturing and automated production lines. Contributing to the future of sustainable energy at Giga Texas.</p>
             </div>
 
-            <div class="bento-card p-8">
-                <h2 class="text-xs font-bold uppercase tracking-widest text-blue-500 mb-6">Technical Arsenal</h2>
-                <div class="flex flex-wrap gap-2">
-                    <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">SolidWorks [cite: 5]</span>
-                    <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Python [cite: 5]</span>
-                    <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Rapid Prototyping [cite: 5]</span>
-                    <span class="bg-white/5 border border-white/10 px-3 py-1 rounded-md text-xs text-white">Process Improvement [cite: 49]</span>
-                </div>
+            <div class="timeline-item">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/H-E-B_logo.svg/960px-H-E-B_logo.svg.png" alt="HEB Logo" class="timeline-logo">
+                <h3>H-E-B</h3>
+                <p>Developed professional communication and fast-paced operational skills within a major Texas-based supply chain.</p>
             </div>
 
-            <div class="bento-card overflow-hidden md:col-span-2 group">
-                <div class="h-64 bg-[#111] flex items-center justify-center border-b border-white/5 relative">
-                    <span class="text-gray-700 font-mono text-xs uppercase tracking-widest group-hover:text-blue-500 transition-colors italic">6-DOF Project Render Preview [cite: 31]</span>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">6-DOF Robotic Arm</h3>
-                    <p class="text-gray-400">Designed and engineered a 6 Degree of Freedom (DOF) robotic arm, focusing on structural integrity and joint articulation[cite: 31, 32].</p>
-                </div>
-            </div>
-
-            <div class="bento-card p-8">
-                <h3 class="text-xl font-bold text-white mb-2 italic">3D Printer Environment</h3>
-                <p class="text-sm text-gray-400 mb-4">Integrated specialized filtration to manage VOCs and ultra-fine particles[cite: 35, 36].</p>
-                <p class="text-xs text-gray-500 italic">Optimized airflow paths for thermal stability[cite: 37].</p>
-            </div>
-
-            <div class="bento-card p-8 md:col-span-3">
-                <h2 class="text-3xl font-bold text-white mb-12 text-center">The Journey</h2>
-                <div class="relative timeline-line">
-                    
-                    <div class="mb-12 flex justify-between items-center w-full md:flex-row-reverse">
-                        <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-blue-500 w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
-                            <i class="fas fa-graduation-cap text-white mx-auto text-xs"></i>
-                        </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl w-full md:w-5/12 px-6 py-4">
-                            <h3 class="font-bold text-white text-lg">B.S. Mechanical Engineering [cite: 55]</h3>
-                            <p class="text-sm text-blue-400">Austin Community College (Expected 2029) [cite: 55]</p>
-                            <p class="text-xs text-gray-500 mt-2">Freshman with a 3.0 GPA[cite: 57, 58].</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-12 flex justify-between items-center w-full">
-                        <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-white w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
-                            <i class="fas fa-car-side text-black mx-auto text-xs"></i>
-                        </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl w-full md:w-5/12 px-6 py-4">
-                            <h3 class="font-bold text-white text-lg">Production Associate [cite: 7]</h3>
-                            <p class="text-sm text-gray-400">Tesla (03/2025 - Present) [cite: 7]</p>
-                            <p class="text-xs text-gray-500 mt-2">Supporting manufacturing operations and quality checks at Giga Texas[cite: 10, 11].</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-12 flex justify-between items-center w-full md:flex-row-reverse">
-                        <div class="order-1 w-full md:w-5/12"></div>
-                        <div class="z-20 flex items-center order-1 bg-red-600 w-10 h-10 rounded-full md:absolute md:left-1/2 md:-translate-x-1/2">
-                            <i class="fas fa-users text-white mx-auto text-xs"></i>
-                        </div>
-                        <div class="order-1 bg-[#161616] border border-white/5 rounded-xl w-full md:w-5/12 px-6 py-4">
-                            <h3 class="font-bold text-white text-lg">Senior Manager [cite: 21]</h3>
-                            <p class="text-sm text-gray-400">Domino's (07/2023 - 01/2025) [cite: 21]</p>
-                            <p class="text-xs text-gray-500 mt-2">Developed leadership and delegating skills in a fast-paced environment[cite: 25].</p>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="timeline-item">
+                <img src="https://assets.stickpng.com/images/61fa8c05eec4c40004bacd46.png" alt="Domino's Logo" class="timeline-logo">
+                <h3>Domino's</h3>
+                <p>Early experience in customer service and logistical coordination.</p>
             </div>
 
         </div>
+    </section>
 
-        <footer class="mt-24 pb-12 text-center border-t border-white/5 pt-8 text-xs text-gray-700">
-            &copy; 2026 Alex Castillo. Built for the Summer 2026 Internship Hunt[cite: 6].
-        </footer>
-    </div>
+    <section id="projects">
+        <h2>Featured Technical Project</h2>
+        <div class="project-card">
+            <h3>6-DOF Robotic Arm</h3>
+            <p>Currently designing and fabricating a 6-axis robotic arm using **SolidWorks** for CAD modeling and a **Creality K1 Max** for high-precision 3D printing.</p>
+        </div>
+    </section>
+
+</div>
 
 </body>
 </html>

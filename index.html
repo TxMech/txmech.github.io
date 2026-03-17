@@ -17,7 +17,7 @@
 
         [data-theme="dark"] {
             --bg-color: #121212;
-            --text-color: #e0e0e0;
+            --text-color: #f0f0f0;
             --accent-color: #3792ff;
             --secondary-bg: #1e1e1e;
             --card-bg: #252525;
@@ -31,13 +31,13 @@
             margin: 0;
             padding: 0;
             transition: all 0.3s ease;
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* Hero Section */
         header {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1350&q=80'); /* Professional shop floor placeholder */
+            height: 65vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -48,20 +48,10 @@
             text-align: center;
         }
 
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
+        header h1 { font-size: 4rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
+        header p { font-size: 1.2rem; font-weight: 300; margin-top: 10px; }
 
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-            font-weight: 300;
-        }
-
-        /* Navigation */
+        /* Navigation & Pill Button */
         nav {
             background: var(--secondary-bg);
             padding: 15px 0;
@@ -71,154 +61,191 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
             border-bottom: 1px solid var(--border-color);
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-color);
-            font-weight: bold;
-            padding: 8px 16px;
-            border-radius: 20px;
-            transition: background 0.3s;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: 0.3s;
         }
 
-        nav a.active {
-            background: var(--accent-color);
-            color: white;
-        }
+        nav a.active { background: var(--accent-color); color: white; }
 
-        /* Theme Toggle Button */
         #theme-toggle {
-            padding: 8px 16px;
-            border-radius: 20px;
-            border: none;
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: 2px solid var(--accent-color);
+            background: transparent;
+            color: var(--accent-color);
             cursor: pointer;
-            background: var(--text-color);
-            color: var(--bg-color);
             font-weight: bold;
+            margin-left: 20px;
         }
 
-        /* Content Sections */
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 0 20px;
+        /* Horizontal Journey Bar */
+        .journey-container {
+            overflow-x: auto;
+            padding: 40px 0;
+            margin: 20px 0;
         }
 
-        section {
-            margin-bottom: 80px;
+        .journey-bar {
+            display: flex;
+            align-items: center;
+            min-width: 800px;
+            position: relative;
         }
 
-        h2 {
-            border-left: 5px solid var(--accent-color);
-            padding-left: 15px;
+        .journey-bar::before {
+            content: '';
+            position: absolute;
+            height: 4px;
+            background: var(--border-color);
+            width: 100%;
+            z-index: 1;
+        }
+
+        .journey-node {
+            flex: 1;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .node-circle {
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            border: 4px solid var(--bg-color);
+        }
+
+        .journey-node.current .node-circle {
+            background: #28a745;
+            box-shadow: 0 0 15px #28a745;
+        }
+
+        /* Sections */
+        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
+        section { display: none; } /* Default hidden for "page" effect */
+        section.active { display: block; animation: fadeIn 0.5s; }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
             margin-bottom: 30px;
         }
 
-        /* Journey Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: var(--card-bg);
-            border-radius: 10px;
+        /* Form Styling */
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea {
+            padding: 12px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
+            background: var(--secondary-bg);
+            color: var(--text-color);
         }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -40px;
-            top: 25px;
-            width: 15px;
-            height: 15px;
+        button[type="submit"] {
             background: var(--accent-color);
-            border-radius: 50%;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
         }
 
-        .timeline-logo {
-            height: 40px;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        /* Contact Icons */
-        .contact-links a {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            text-decoration: none;
-            margin-right: 20px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.9rem;
-            color: gray;
-        }
+        footer { text-align: center; padding: 60px 0; color: #888; border-top: 1px solid var(--border-color); }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
-    <header id="home">
+    <header>
         <h1>ALEX CASTILLO</h1>
         <p>Mechanical Engineering Portfolio</p>
     </header>
 
-    <nav>
-        <a href="#home" class="active">Home</a>
-        <a href="#about">About Me</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle">Mode</button>
+    <nav id="main-nav">
+        <a href="#home" class="nav-btn active" onclick="showSection('home')">Home</a>
+        <a href="#about" class="nav-btn" onclick="showSection('about')">About Me</a>
+        <a href="#projects" class="nav-btn" onclick="showSection('projects')">Projects</a>
+        <a href="#contact" class="nav-btn" onclick="showSection('contact')">Contact Me</a>
+        <button id="theme-toggle">🌓 Mode</button>
     </nav>
 
     <div class="container">
         
-        <section id="about">
-            <h2>Summary</h2>
-            <p>Mechanical Engineering student at Austin Community College with a background in high-volume manufacturing at Tesla. Passionate about design engineering, robotics, and additive manufacturing. Currently seeking a Summer 2026 internship to apply technical skills in a design-focused environment.</p>
+        <section id="home" class="active">
+            <h2>Mechanical Design & Manufacturing</h2>
+            <p>Welcome to my portfolio. I am an aspiring Design Mechanical Engineer currently studying at Austin Community College and working within Tesla's manufacturing ecosystem.</p>
+            
+            <h3>The Journey</h3>
+            <div class="journey-container">
+                <div class="journey-bar">
+                    <div class="journey-node">
+                        <div class="node-circle"></div>
+                        <strong>Education</strong><br><small>ACC Engineering</small>
+                    </div>
+                    <div class="journey-node">
+                        <div class="node-circle"></div>
+                        <strong>Tesla</strong><br><small>Production Associate</small>
+                    </div>
+                    <div class="journey-node">
+                        <div class="node-circle"></div>
+                        <strong>Maker Projects</strong><br><small>Robotics & 3D Design</small>
+                    </div>
+                    <div class="journey-node current">
+                        <div class="node-circle"></div>
+                        <strong>Current Status</strong><br><small>Seeking 2026 Internships</small>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="experience">
-            <h2>Experience / Journey</h2>
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <strong>Tesla | Production Associate</strong>
-                    <p>Austin, TX | Jan 2025 - Present</p>
-                    <p>Contributing to manufacturing flow and quality standards in a fast-paced production environment.</p>
-                </div>
-
-                <div class="timeline-item">
-                    <strong>Austin Community College</strong>
-                    <p>Mechanical Engineering Student</p>
-                    <p>Focusing on CAD design, mechanical systems, and advanced mathematics.</p>
-                </div>
-
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="card">
+                <p>I focus on bridge the gap between theoretical design and physical manufacturing. With experience on the factory floor at Tesla and a personal passion for 6-DOF robotics, I bring a practical "maker" mindset to every engineering challenge.</p>
+                <ul>
+                    <li><strong>Major:</strong> Mechanical Engineering (Austin Community College)</li>
+                    <li><strong>Specialties:</strong> CAD Design (SolidWorks), 3D Printing, Robotics</li>
+                    <li><strong>Goal:</strong> Summer 2026 Mechanical Design Internship</li>
+                </ul>
             </div>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="timeline-item">
+            <div class="card">
                 <h3>6-DOF Robotic Arm</h3>
-                <p>Designed and fabricated a 6-axis robotic arm using SolidWorks and a Creality K1 Max 3D printer. Focused on tolerance management, servo integration, and structural integrity.</p>
+                <p>Fully articulated robotic arm designed in SolidWorks and fabricated via high-speed additive manufacturing. This project involved complex tolerance testing and servo motor integration.</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
-            <div class="contact-links">
-                <a href="mailto:alexleecastillo@gmail.com">Email Me</a>
-                <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank">LinkedIn</a>
+            <div class="card">
+                <p>Feel free to reach out via the form below or through LinkedIn.</p>
+                <form action="https://formspree.io/f/alex.castillo3@g.austincc.edu" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div style="margin-top: 20px;">
+                    <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" style="color:var(--accent-color); text-decoration:none; font-weight:bold;">View My LinkedIn Profile</a>
+                </div>
             </div>
         </section>
 
@@ -229,37 +256,25 @@
     </footer>
 
     <script>
-        // Theme Toggle Logic
+        // Section Switching Logic
+        function showSection(sectionId) {
+            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelector(`[href="#${sectionId}"]`).classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+
+        // Theme Toggle
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
 
         toggleBtn.addEventListener('click', () => {
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                toggleBtn.innerText = 'Dark Mode';
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                toggleBtn.innerText = 'Light Mode';
-            }
-        });
-
-        // Navigation Highlight Logic
-        const navLinks = document.querySelectorAll('nav a');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            document.querySelectorAll('section, header').forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 100) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
-                }
-            });
+            const currentTheme = body.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', newTheme);
         });
     </script>
 </body>

@@ -13,6 +13,12 @@
             --secondary-bg: #f4f4f4;
             --card-bg: #ffffff;
             --border-color: #ddd;
+            
+            /* Journey Colors from Sketch */
+            --hs-color: #fff9c4; /* Soft Yellow */
+            --tesla-color: #ffcdd2; /* Soft Red */
+            --acc-color: #e1f5fe; /* Soft Blue */
+            --search-color: #c8e6c9; /* Soft Green */
         }
 
         [data-theme="dark"] {
@@ -22,14 +28,17 @@
             --secondary-bg: #1e1e1e;
             --card-bg: #252525;
             --border-color: #333;
+            --hs-color: #434026;
+            --tesla-color: #4a2c2c;
+            --acc-color: #263843;
+            --search-color: #263e26;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             transition: all 0.3s ease;
             scroll-behavior: smooth;
             text-align: center;
@@ -37,175 +46,62 @@
 
         /* Hero */
         header {
-            height: 50vh;
+            height: 45vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
         }
 
         header h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
 
         /* Navigation */
         nav {
-            background: var(--secondary-bg);
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            background: var(--secondary-bg); padding: 15px 0; position: sticky; top: 0;
+            z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 10px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 700;
-            padding: 10px 20px;
-            border-radius: 30px;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
+        nav a { text-decoration: none; color: var(--text-color); font-weight: 700; padding: 10px 20px; border-radius: 30px; transition: 0.3s; cursor: pointer; }
         nav a.active { background: var(--accent-color); color: white; }
 
-        #theme-toggle {
-            padding: 8px 18px;
-            border-radius: 50px;
-            border: 2px solid var(--accent-color);
-            background: transparent;
-            color: var(--accent-color);
-            cursor: pointer;
-            font-weight: bold;
-            margin-left: 20px;
+        #theme-toggle { padding: 8px 18px; border-radius: 50px; border: 2px solid var(--accent-color); background: transparent; color: var(--accent-color); cursor: pointer; font-weight: bold; margin-left: 20px; }
+
+        /* --- Journey Schematic Styling --- */
+        .journey-container { overflow-x: auto; padding: 60px 20px; margin-top: 20px; }
+        .journey-schematic { display: flex; align-items: flex-start; min-width: 1000px; margin: 0 auto; position: relative; padding-bottom: 50px; }
+
+        .schematic-node { display: flex; flex-direction: column; align-items: center; position: relative; }
+        .node-box {
+            border: 2px solid var(--text-color); padding: 15px 25px; font-weight: bold;
+            z-index: 3; position: relative; min-width: 140px; box-shadow: 4px 4px 0px var(--text-color);
         }
+        
+        .sub-box { font-size: 0.8rem; padding: 10px 15px; margin-top: 30px; min-width: 100px; }
 
-        /* Schematic Journey Bar (Based on Sketch) */
-        .journey-container {
-            overflow-x: auto;
-            padding: 80px 20px;
-            margin: 20px 0;
-        }
+        /* Schematic Lines */
+        .connector-line { height: 3px; background: var(--text-color); flex-grow: 1; align-self: center; margin-top: -65px; z-index: 1; }
+        .vertical-line { width: 3px; background: var(--text-color); height: 30px; position: absolute; top: 100%; z-index: 1; }
+        .horizontal-branch { position: absolute; height: 3px; background: var(--text-color); width: 80px; top: 125px; z-index: 1; }
 
-        .journey-schematic {
-            display: flex;
-            align-items: center;
-            min-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
+        /* Color Coding */
+        .color-hs { background-color: var(--hs-color); }
+        .color-tesla { background-color: var(--tesla-color); }
+        .color-acc { background-color: var(--acc-color); }
+        .color-search { background-color: var(--search-color); }
 
-        /* The Main Connecting Line */
-        .main-line {
-            position: absolute;
-            height: 3px;
-            background: var(--text-color);
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-        }
-
-        .journey-block {
-            background: var(--card-bg);
-            border: 2.5px solid var(--text-color);
-            padding: 15px 25px;
-            position: relative;
-            z-index: 2;
-            font-weight: bold;
-            min-width: 120px;
-        }
-
-        /* Branching Logic */
-        .branch-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .sub-branches {
-            display: flex;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .sub-box {
-            font-size: 0.85rem;
-            padding: 8px 15px;
-            background: var(--secondary-bg);
-            border: 2px solid var(--text-color);
-        }
-
-        .branch-vertical {
-            width: 2.5px;
-            background: var(--text-color);
-            height: 30px;
-            position: absolute;
-            top: 100%;
-        }
-
-        /* Tesla specific branch */
-        .tesla-vertical {
-            width: 2.5px;
-            background: var(--text-color);
-            height: 20px;
-            margin: 0 auto;
-        }
-
-        .spacer { flex-grow: 1; }
-
-        /* Search Box */
-        .search-box {
-            background: var(--accent-color);
-            color: white;
-            border-color: var(--text-color);
-            box-shadow: 6px 6px 0px var(--text-color);
-        }
-
-        /* Cards and Sections */
+        /* Layout */
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         section { display: none; }
         section.active { display: block; animation: fadeIn 0.4s; }
-
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .card {
-            background: var(--card-bg);
-            padding: 35px;
-            border-radius: 15px;
-            border: 1px solid var(--border-color);
-            margin-bottom: 30px;
-            line-height: 1.8;
-            text-align: left;
-        }
-
-        .exp-item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-        .exp-logo { width: 50px; height: 50px; object-fit: contain; }
-
-        /* Form */
-        form { display: flex; flex-direction: column; gap: 15px; text-align: left; }
-        input, textarea {
-            padding: 15px; border-radius: 8px; border: 1px solid var(--border-color);
-            background: var(--secondary-bg); color: var(--text-color); font-family: inherit;
-        }
+        .card { background: var(--card-bg); padding: 35px; border-radius: 15px; border: 1px solid var(--border-color); margin-bottom: 30px; line-height: 1.8; text-align: left; }
+        .exp-item { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; }
+        .exp-logo { width: 45px; height: 45px; object-fit: contain; }
 
         /* Buttons */
         .bottom-actions { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
-        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer;}
+        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; }
         .btn-primary { background: var(--accent-color); color: white; border: none; }
         .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
 
@@ -228,7 +124,6 @@
     </nav>
 
     <div class="container">
-        
         <section id="home" class="active">
             <h2>Summary</h2>
             <div class="card">
@@ -238,56 +133,54 @@
             <h2>Life Journey</h2>
             <div class="journey-container">
                 <div class="journey-schematic">
-                    <div class="main-line"></div>
-
-                    <div class="branch-group">
-                        <div class="journey-block">High-School</div>
-                        <div class="branch-vertical"></div>
-                        <div class="sub-branches">
-                            <div class="journey-block sub-box">HEB</div>
-                            <div class="journey-block sub-box">Domino's</div>
+                    
+                    <div class="schematic-node">
+                        <div class="node-box color-hs">High-School</div>
+                        <div class="vertical-line"></div>
+                        <div style="display: flex; gap: 40px;">
+                            <div class="node-box sub-box color-hs">HEB</div>
+                            <div class="node-box sub-box color-hs">Domino's</div>
                         </div>
                     </div>
 
-                    <div class="spacer"></div>
+                    <div class="connector-line"></div>
 
-                    <div class="branch-group">
-                        <div class="journey-block">Tesla</div>
-                        <div class="tesla-vertical"></div>
-                        <div class="journey-block sub-box">Production Associate</div>
+                    <div class="schematic-node">
+                        <div class="node-box color-tesla">Tesla</div>
+                        <div class="vertical-line"></div>
+                        <div class="node-box sub-box color-tesla">Production Associate</div>
                     </div>
 
-                    <div class="spacer"></div>
+                    <div class="connector-line"></div>
 
-                    <div class="journey-block">ACC</div>
+                    <div class="schematic-node">
+                        <div class="node-box color-acc">ACC</div>
+                        <div class="vertical-line"></div>
+                        <div class="node-box sub-box color-acc">Mechanical Engineering Student</div>
+                    </div>
 
-                    <div class="spacer"></div>
+                    <div class="connector-line"></div>
 
-                    <div class="journey-block search-box">Search for Internship!!!</div>
+                    <div class="schematic-node">
+                        <div class="node-box color-search" style="box-shadow: 6px 6px 0px var(--text-color);">Search for Internship!!!</div>
+                    </div>
                 </div>
             </div>
 
             <h2>Work Experience</h2>
             <div class="card">
                 <div class="exp-item">
-                    <img src="tesla-logo.png" alt="Tesla Logo" class="exp-logo">
+                    <img src="tesla-logo.png" alt="" class="exp-logo">
                     <div>
                         <strong>Tesla | Production Associate</strong>
-                        <p>Jan 2025 - Present | Austin, TX</p>
+                        <p>Jan 2025 - Present | Austin, TX </p>
                     </div>
                 </div>
                 <div class="exp-item">
-                    <img src="heb-logo.png" alt="HEB Logo" class="exp-logo">
+                    <img src="heb-logo.png" alt="" class="exp-logo">
                     <div>
                         <strong>H-E-B | Customer Service</strong>
-                        <p>Austin, TX</p>
-                    </div>
-                </div>
-                <div class="exp-item">
-                    <img src="dominos-logo.png" alt="Domino's Logo" class="exp-logo">
-                    <div>
-                        <strong>Domino's | Delivery/Service</strong>
-                        <p>Austin, TX</p>
+                        <p>Austin area </p>
                     </div>
                 </div>
             </div>
@@ -323,13 +216,12 @@
 
         <div class="bottom-actions">
             <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
-            <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn</a>
+            <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn </a>
         </div>
-
     </div>
 
     <footer>
-        <p>@2026 Alex Castillo Summer Internship Hunt</p>
+        <p>@2026 Alex Castillo Summer Internship Hunt </p>
     </footer>
 
     <script>
@@ -340,7 +232,6 @@
             document.querySelector(`[href="#${sectionId}"]`).classList.add('active');
             window.scrollTo(0, 0);
         }
-
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
         toggleBtn.addEventListener('click', () => {

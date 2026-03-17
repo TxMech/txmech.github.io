@@ -12,13 +12,7 @@
             --accent-color: #007bff;
             --secondary-bg: #f4f4f4;
             --card-bg: #ffffff;
-            --border-color: #ddd;
-            
-            /* Journey Colors from Sketch */
-            --hs-color: #fff9c4; /* Soft Yellow */
-            --tesla-color: #ffcdd2; /* Soft Red */
-            --acc-color: #e1f5fe; /* Soft Blue */
-            --search-color: #c8e6c9; /* Soft Green */
+            --border-color: #000000;
         }
 
         [data-theme="dark"] {
@@ -27,11 +21,7 @@
             --accent-color: #3792ff;
             --secondary-bg: #1e1e1e;
             --card-bg: #252525;
-            --border-color: #333;
-            --hs-color: #434026;
-            --tesla-color: #4a2c2c;
-            --acc-color: #263843;
-            --search-color: #263e26;
+            --border-color: #ffffff;
         }
 
         body {
@@ -41,74 +31,30 @@
             margin: 0; padding: 0;
             transition: all 0.3s ease;
             scroll-behavior: smooth;
-            text-align: center;
         }
 
         /* Hero */
         header {
-            height: 40vh;
+            height: 35vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1500&q=80');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
+            text-align: center;
         }
 
-        header h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
+        header h1 { font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
 
         /* Navigation */
         nav {
-            background: var(--secondary-bg); padding: 15px 0; position: sticky; top: 0;
+            background: var(--secondary-bg); padding: 12px 0; position: sticky; top: 0;
             z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 10px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        nav a { text-decoration: none; color: var(--text-color); font-weight: 700; padding: 10px 20px; border-radius: 30px; transition: 0.3s; cursor: pointer; }
+        nav a { text-decoration: none; color: var(--text-color); font-weight: 700; padding: 8px 16px; border-radius: 30px; transition: 0.3s; cursor: pointer; }
         nav a.active { background: var(--accent-color); color: white; }
 
-        #theme-toggle { padding: 8px 18px; border-radius: 50px; border: 2px solid var(--accent-color); background: transparent; color: var(--accent-color); cursor: pointer; font-weight: bold; margin-left: 20px; }
-
-        /* --- Journey Schematic Styling (Updated to Sketch) --- */
-        .journey-container { overflow-x: auto; padding: 60px 20px; margin-top: 20px; }
-        .journey-schematic { display: flex; align-items: center; min-width: 1000px; margin: 0 auto; position: relative; }
-
-        .schematic-node { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
-        .node-box {
-            border: 2.5px solid var(--text-color); padding: 15px 25px; font-weight: bold;
-            min-width: 140px; text-transform: uppercase; letter-spacing: 1px;
-            position: relative;
-        }
-        
-        .sub-box { font-size: 0.8rem; padding: 10px 15px; margin-top: 30px; min-width: 110px; }
-
-        /* Schematic Lines */
-        .connector-line { height: 2.5px; background: var(--text-color); flex-grow: 1; align-self: center; margin-top: -65px; z-index: 1; }
-        .vertical-line { width: 2.5px; background: var(--text-color); height: 30px; position: absolute; top: 100%; z-index: 1; }
-
-        /* "I am here" Indicator (Centered above ACC node now) */
-        .acc-here-indicator {
-            position: absolute;
-            top: -65px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: #d32f2f;
-            font-weight: bold;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .arrow-down {
-            width: 0; 
-            height: 0; 
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 12px solid #d32f2f;
-            margin-top: 5px;
-        }
-
-        /* Color Coding */
-        .color-hs { background-color: var(--hs-color); }
-        .color-tesla { background-color: var(--tesla-color); }
-        .color-acc { background-color: var(--acc-color); }
-        .color-search { background-color: var(--search-color); }
+        #theme-toggle { padding: 6px 14px; border-radius: 50px; border: 2px solid var(--accent-color); background: transparent; color: var(--accent-color); cursor: pointer; font-weight: bold; margin-left: 20px; }
 
         /* Layout */
         .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
@@ -116,18 +62,19 @@
         section.active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .card { background: var(--card-bg); padding: 35px; border-radius: 15px; border: 1px solid var(--border-color); margin-bottom: 30px; line-height: 1.8; text-align: left; }
+        .card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 30px; line-height: 1.8; text-align: left; }
+        h2 { text-align: center; margin-bottom: 30px; }
 
         /* Buttons */
         .bottom-actions { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
-        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .btn { padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; }
         .btn-primary { background: var(--accent-color); color: white; border: none; }
         .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
 
-        footer { padding: 40px 0; color: #888; border-top: 1px solid var(--border-color); }
+        footer { text-align: center; padding: 40px 0; color: #888; border-top: 1px solid var(--border-color); }
     </style>
 </head>
-<body data-theme="light">
+<body>
 
     <header>
         <h1>ALEX CASTILLO</h1>
@@ -144,57 +91,21 @@
 
     <div class="container">
         <section id="home" class="active">
-            <h2>Summary</h2> <div class="card">
+            <h2>Summary</h2>
+            <div class="card">
                 <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects.</p>
             </div>
             
-            <h2>Life Journey</h2>
-            <div class="journey-container">
-                <div class="journey-schematic">
-                    
-                    <div class="schematic-node">
-                        <div class="node-box color-hs">High-School</div>
-                        <div class="vertical-line"></div>
-                        <div style="display: flex; gap: 30px; margin-top: 30px;">
-                            <div class="node-box sub-box color-hs">HEB</div>
-                            <div class="node-box sub-box color-hs">Domino's</div>
-                        </div>
-                    </div>
-
-                    <div class="connector-line"></div>
-
-                    <div class="schematic-node">
-                        <div class="node-box color-tesla">Tesla</div>
-                        <div class="vertical-line"></div>
-                        <div class="node-box sub-box color-tesla">Production Associate</div>
-                    </div>
-
-                    <div class="connector-line"></div>
-
-                    <div class="schematic-node">
-                        <div class="acc-here-indicator">
-                            I am here!
-                            <div class="arrow-down"></div>
-                        </div>
-                        <div class="node-box color-acc">ACC</div>
-                        <div class="vertical-line"></div>
-                        <div class="node-box sub-box color-acc">Engineering Student</div>
-                    </div>
-
-                    <div class="connector-line"></div>
-
-                    <div class="schematic-node">
-                        <div class="node-box color-search">Search for Internship!!!</div>
-                    </div>
-                </div>
-            </div>
-
             <h2>Work Experience</h2>
             <div class="card">
                 <p><strong>Tesla | Production Associate</strong></p>
                 <p>Jan 2025 - Present | Austin, TX</p>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
                 <p><strong>H-E-B | Customer Service</strong></p>
-                <p>Austin area</p>
+                <p>Austin, TX</p>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
+                <p><strong>Domino's | Service/Logistics</strong></p>
+                <p>Austin, TX</p>
             </div>
         </section>
 

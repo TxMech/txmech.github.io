@@ -12,13 +12,13 @@
             --accent-color: #007bff;
             --secondary-bg: #f4f4f4;
             --card-bg: #ffffff;
-            --border-color: #000000;
+            --border-color: #ddd;
             
             /* Journey Colors from Sketch */
-            --hs-color: #fff9c4; 
-            --tesla-color: #ffcdd2; 
-            --acc-color: #e1f5fe; 
-            --search-color: #c8e6c9; 
+            --hs-color: #fff9c4; /* Soft Yellow */
+            --tesla-color: #ffcdd2; /* Soft Red */
+            --acc-color: #e1f5fe; /* Soft Blue */
+            --search-color: #c8e6c9; /* Soft Green */
         }
 
         [data-theme="dark"] {
@@ -27,7 +27,7 @@
             --accent-color: #3792ff;
             --secondary-bg: #1e1e1e;
             --card-bg: #252525;
-            --border-color: #ffffff;
+            --border-color: #333;
             --hs-color: #434026;
             --tesla-color: #4a2c2c;
             --acc-color: #263843;
@@ -41,51 +41,52 @@
             margin: 0; padding: 0;
             transition: all 0.3s ease;
             scroll-behavior: smooth;
+            text-align: center;
         }
 
         /* Hero */
         header {
-            height: 35vh;
+            height: 40vh;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1500&q=80');
             background-size: cover; background-position: center;
             display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
-            text-align: center;
         }
 
-        header h1 { font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
+        header h1 { font-size: 3.5rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
 
         /* Navigation */
         nav {
-            background: var(--secondary-bg); padding: 12px 0; position: sticky; top: 0;
+            background: var(--secondary-bg); padding: 15px 0; position: sticky; top: 0;
             z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 10px;
             border-bottom: 1px solid var(--border-color);
         }
 
-        nav a { text-decoration: none; color: var(--text-color); font-weight: 700; padding: 8px 16px; border-radius: 30px; transition: 0.3s; cursor: pointer; }
+        nav a { text-decoration: none; color: var(--text-color); font-weight: 700; padding: 10px 20px; border-radius: 30px; transition: 0.3s; cursor: pointer; }
         nav a.active { background: var(--accent-color); color: white; }
 
-        #theme-toggle { padding: 6px 14px; border-radius: 50px; border: 2px solid var(--accent-color); background: transparent; color: var(--accent-color); cursor: pointer; font-weight: bold; margin-left: 20px; }
+        #theme-toggle { padding: 8px 18px; border-radius: 50px; border: 2px solid var(--accent-color); background: transparent; color: var(--accent-color); cursor: pointer; font-weight: bold; margin-left: 20px; }
 
-        /* --- Journey Schematic Styling --- */
-        .journey-container { padding: 100px 20px 80px; margin-top: 20px; overflow-x: auto; }
-        .journey-schematic { display: flex; align-items: center; width: 100%; max-width: 1000px; margin: 0 auto; position: relative; justify-content: space-between; }
+        /* --- Journey Schematic Styling (Updated to Sketch) --- */
+        .journey-container { overflow-x: auto; padding: 60px 20px; margin-top: 20px; }
+        .journey-schematic { display: flex; align-items: center; min-width: 1000px; margin: 0 auto; position: relative; }
 
         .schematic-node { display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
         .node-box {
-            border: 2px solid var(--border-color); padding: 12px 20px; font-weight: bold;
-            min-width: 140px; text-align: center; position: relative;
+            border: 2.5px solid var(--text-color); padding: 15px 25px; font-weight: bold;
+            min-width: 140px; text-transform: uppercase; letter-spacing: 1px;
+            position: relative;
         }
         
-        .sub-box { font-size: 0.8rem; padding: 8px 12px; margin-top: 40px; min-width: 100px; }
+        .sub-box { font-size: 0.8rem; padding: 10px 15px; margin-top: 30px; min-width: 110px; }
 
-        /* Straight Path Connecting Lines */
-        .connector-line { height: 2px; background: var(--border-color); flex-grow: 1; z-index: 1; align-self: center; margin-bottom: 74px; }
-        .vertical-line { width: 2px; background: var(--border-color); height: 40px; }
+        /* Schematic Lines */
+        .connector-line { height: 2.5px; background: var(--text-color); flex-grow: 1; align-self: center; margin-top: -65px; z-index: 1; }
+        .vertical-line { width: 2.5px; background: var(--text-color); height: 30px; position: absolute; top: 100%; z-index: 1; }
 
-        /* "I am here" Indicator (Centered above ACC) */
-        .here-indicator {
+        /* "I am here" Indicator (Centered above ACC node now) */
+        .acc-here-indicator {
             position: absolute;
-            top: -70px;
+            top: -65px;
             left: 50%;
             transform: translateX(-50%);
             color: #d32f2f;
@@ -93,10 +94,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            white-space: nowrap;
         }
         .arrow-down {
-            width: 0; height: 0; 
+            width: 0; 
+            height: 0; 
             border-left: 8px solid transparent;
             border-right: 8px solid transparent;
             border-top: 12px solid #d32f2f;
@@ -115,19 +116,18 @@
         section.active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 30px; line-height: 1.8; text-align: left; }
-        h2 { text-align: center; margin-bottom: 30px; }
+        .card { background: var(--card-bg); padding: 35px; border-radius: 15px; border: 1px solid var(--border-color); margin-bottom: 30px; line-height: 1.8; text-align: left; }
 
         /* Buttons */
         .bottom-actions { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
-        .btn { padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; }
+        .btn { padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; }
         .btn-primary { background: var(--accent-color); color: white; border: none; }
         .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
 
-        footer { text-align: center; padding: 40px 0; color: #888; border-top: 1px solid var(--border-color); }
+        footer { padding: 40px 0; color: #888; border-top: 1px solid var(--border-color); }
     </style>
 </head>
-<body>
+<body data-theme="light">
 
     <header>
         <h1>ALEX CASTILLO</h1>
@@ -144,8 +144,7 @@
 
     <div class="container">
         <section id="home" class="active">
-            <h2>Summary</h2>
-            <div class="card">
+            <h2>Summary</h2> <div class="card">
                 <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects.</p>
             </div>
             
@@ -154,10 +153,10 @@
                 <div class="journey-schematic">
                     
                     <div class="schematic-node">
-                        <div class="node-box color-hs">High-School [cite: 26]</div>
+                        <div class="node-box color-hs">High-School</div>
                         <div class="vertical-line"></div>
-                        <div style="display: flex; gap: 15px; margin-top: 0px;">
-                            <div class="node-box sub-box color-hs">HEB [cite: 26]</div>
+                        <div style="display: flex; gap: 30px; margin-top: 30px;">
+                            <div class="node-box sub-box color-hs">HEB</div>
                             <div class="node-box sub-box color-hs">Domino's</div>
                         </div>
                     </div>
@@ -165,53 +164,53 @@
                     <div class="connector-line"></div>
 
                     <div class="schematic-node">
-                        <div class="node-box color-tesla">Tesla [cite: 26]</div>
+                        <div class="node-box color-tesla">Tesla</div>
                         <div class="vertical-line"></div>
-                        <div class="node-box sub-box color-tesla">Production Associate [cite: 26]</div>
+                        <div class="node-box sub-box color-tesla">Production Associate</div>
                     </div>
 
                     <div class="connector-line"></div>
 
                     <div class="schematic-node">
-                        <div class="here-indicator">
+                        <div class="acc-here-indicator">
                             I am here!
                             <div class="arrow-down"></div>
                         </div>
-                        <div class="node-box color-acc">ACC [cite: 26]</div>
+                        <div class="node-box color-acc">ACC</div>
                         <div class="vertical-line"></div>
-                        <div class="node-box sub-box color-acc">Engineering Student [cite: 26]</div>
+                        <div class="node-box sub-box color-acc">Engineering Student</div>
                     </div>
 
                     <div class="connector-line"></div>
 
                     <div class="schematic-node">
-                        <div class="node-box color-search">Search for Internship!!! </div>
+                        <div class="node-box color-search">Search for Internship!!!</div>
                     </div>
                 </div>
             </div>
 
             <h2>Work Experience</h2>
             <div class="card">
-                <p><strong>Tesla | Production Associate [cite: 26]</strong></p>
-                <p>Jan 2025 - Present | Austin, TX [cite: 26]</p>
-                <p><strong>H-E-B | Customer Service [cite: 26]</strong></p>
-                <p>Austin area [cite: 26]</p>
+                <p><strong>Tesla | Production Associate</strong></p>
+                <p>Jan 2025 - Present | Austin, TX</p>
+                <p><strong>H-E-B | Customer Service</strong></p>
+                <p>Austin area</p>
             </div>
         </section>
 
         <section id="about">
             <h2>About Me</h2>
             <div class="card">
-                <p>Hi there! My name is Alex Castillo and I'm currently a mechanical engineering student[cite: 16].</p>
-                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic[cite: 17]. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing[cite: 18].</p>
+                <p>Hi there! My name is Alex Castillo and I'm currently a mechanical engineering student.</p>
+                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing.</p>
             </div>
         </section>
 
         <section id="projects">
             <h2>Technical Projects</h2>
             <div class="card">
-                <h3>6-DOF Robotic Arm [cite: 18]</h3>
-                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks[cite: 18].</p>
+                <h3>6-DOF Robotic Arm</h3>
+                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks.</p>
             </div>
         </section>
 
@@ -228,13 +227,13 @@
         </section>
 
         <div class="bottom-actions">
-            <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume [cite: 34]</a>
-            <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn [cite: 32, 34]</a>
+            <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+            <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn</a>
         </div>
     </div>
 
     <footer>
-        <p>@2026 Alex Castillo Summer Internship Hunt [cite: 27]</p>
+        <p>@2026 Alex Castillo Summer Internship Hunt</p>
     </footer>
 
     <script>

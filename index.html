@@ -51,7 +51,7 @@
         header h1 { font-size: 4rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
         header p { font-size: 1.2rem; font-weight: 300; margin-top: 10px; }
 
-        /* Navigation & Pill Button */
+        /* Navigation Pill Bar */
         nav {
             background: var(--secondary-bg);
             padding: 15px 0;
@@ -61,7 +61,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             border-bottom: 1px solid var(--border-color);
         }
 
@@ -97,7 +97,7 @@
         .journey-bar {
             display: flex;
             align-items: center;
-            min-width: 800px;
+            min-width: 900px;
             position: relative;
         }
 
@@ -115,12 +115,11 @@
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 0 10px;
         }
 
         .node-circle {
-            width: 20px;
-            height: 20px;
+            width: 25px;
+            height: 25px;
             background: var(--accent-color);
             border-radius: 50%;
             margin: 0 auto 15px;
@@ -130,40 +129,50 @@
         .journey-node.current .node-circle {
             background: #28a745;
             box-shadow: 0 0 15px #28a745;
+            animation: pulse 2s infinite;
         }
 
-        /* Sections */
-        .container { max-width: 1000px; margin: 60px auto; padding: 0 20px; }
-        section { display: none; } /* Default hidden for "page" effect */
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.2); } 100% { transform: scale(1); } }
+
+        /* Layout Sections */
+        .container { max-width: 900px; margin: 60px auto; padding: 0 20px; }
+        section { display: none; }
         section.active { display: block; animation: fadeIn 0.5s; }
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .card {
             background: var(--card-bg);
-            padding: 30px;
-            border-radius: 12px;
+            padding: 35px;
+            border-radius: 15px;
             border: 1px solid var(--border-color);
             margin-bottom: 30px;
+            line-height: 1.8;
         }
 
-        /* Form Styling */
+        /* Buttons */
+        .btn-group { display: flex; gap: 15px; margin-top: 25px; }
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn-primary { background: var(--accent-color); color: white; border: none; }
+        .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); }
+
+        /* Form */
         form { display: flex; flex-direction: column; gap: 15px; }
         input, textarea {
-            padding: 12px;
+            padding: 15px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
             background: var(--secondary-bg);
             color: var(--text-color);
-        }
-        button[type="submit"] {
-            background: var(--accent-color);
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
+            font-family: inherit;
         }
 
         footer { text-align: center; padding: 60px 0; color: #888; border-top: 1px solid var(--border-color); }
@@ -176,7 +185,7 @@
         <p>Mechanical Engineering Portfolio</p>
     </header>
 
-    <nav id="main-nav">
+    <nav>
         <a href="#home" class="nav-btn active" onclick="showSection('home')">Home</a>
         <a href="#about" class="nav-btn" onclick="showSection('about')">About Me</a>
         <a href="#projects" class="nav-btn" onclick="showSection('projects')">Projects</a>
@@ -187,15 +196,21 @@
     <div class="container">
         
         <section id="home" class="active">
-            <h2>Mechanical Design & Manufacturing</h2>
-            <p>Welcome to my portfolio. I am an aspiring Design Mechanical Engineer currently studying at Austin Community College and working within Tesla's manufacturing ecosystem.</p>
+            <h2>Summary</h2>
+            <div class="card">
+                <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects.</p>
+                <div class="btn-group">
+                    <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+                    <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn</a>
+                </div>
+            </div>
             
-            <h3>The Journey</h3>
+            <h3>Experience Journey</h3>
             <div class="journey-container">
                 <div class="journey-bar">
                     <div class="journey-node">
                         <div class="node-circle"></div>
-                        <strong>Education</strong><br><small>ACC Engineering</small>
+                        <strong>Early Roles</strong><br><small>Retail & Logistics</small>
                     </div>
                     <div class="journey-node">
                         <div class="node-circle"></div>
@@ -203,11 +218,11 @@
                     </div>
                     <div class="journey-node">
                         <div class="node-circle"></div>
-                        <strong>Maker Projects</strong><br><small>Robotics & 3D Design</small>
+                        <strong>ACC</strong><br><small>Engineering Student</small>
                     </div>
                     <div class="journey-node current">
                         <div class="node-circle"></div>
-                        <strong>Current Status</strong><br><small>Seeking 2026 Internships</small>
+                        <strong>Current Status</strong><br><small>Seeking Internships</small>
                     </div>
                 </div>
             </div>
@@ -216,36 +231,34 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="card">
-                <p>I focus on bridge the gap between theoretical design and physical manufacturing. With experience on the factory floor at Tesla and a personal passion for 6-DOF robotics, I bring a practical "maker" mindset to every engineering challenge.</p>
-                <ul>
-                    <li><strong>Major:</strong> Mechanical Engineering (Austin Community College)</li>
-                    <li><strong>Specialties:</strong> CAD Design (SolidWorks), 3D Printing, Robotics</li>
-                    <li><strong>Goal:</strong> Summer 2026 Mechanical Design Internship</li>
-                </ul>
+                <p>Hi there! My name is Alex Castillo and I'm currently in my journey as a mechanical engineering student[cite: 16].</p>
+                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing.</p>
+                <p>You can learn more about my journey in my resume:</p>
+                <div class="btn-group">
+                    <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+                    <a href="resume.pdf" download class="btn btn-outline">Download PDF</a>
+                </div>
             </div>
         </section>
 
         <section id="projects">
-            <h2>Projects</h2>
+            <h2>Technical Projects</h2>
             <div class="card">
                 <h3>6-DOF Robotic Arm</h3>
-                <p>Fully articulated robotic arm designed in SolidWorks and fabricated via high-speed additive manufacturing. This project involved complex tolerance testing and servo motor integration.</p>
+                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks.</p>
             </div>
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
             <div class="card">
-                <p>Feel free to reach out via the form below or through LinkedIn.</p>
+                <p>I am actively seeking internship opportunities for Summer 2026. Please reach out via the form below or LinkedIn.</p>
                 <form action="https://formspree.io/f/alex.castillo3@g.austincc.edu" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="_replyto" placeholder="Your Email" required>
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
                     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
+                    <button type="submit" class="btn btn-primary" style="width:100%">Send Message</button>
                 </form>
-                <div style="margin-top: 20px;">
-                    <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" style="color:var(--accent-color); text-decoration:none; font-weight:bold;">View My LinkedIn Profile</a>
-                </div>
             </div>
         </section>
 
@@ -256,25 +269,19 @@
     </footer>
 
     <script>
-        // Section Switching Logic
         function showSection(sectionId) {
             document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            
             document.getElementById(sectionId).classList.add('active');
             document.querySelector(`[href="#${sectionId}"]`).classList.add('active');
-            
             window.scrollTo(0, 0);
         }
 
-        // Theme Toggle
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
-
         toggleBtn.addEventListener('click', () => {
             const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            body.setAttribute('data-theme', newTheme);
+            body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
         });
     </script>
 </body>

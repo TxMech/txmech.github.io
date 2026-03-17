@@ -4,133 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Castillo | Mechanical Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #ffffff;
-            --text-main: #2d2d2d;
-            --accent-blue: #004a99; /* Professional Navy Blue */
-            --light-gray: #f4f4f4;
+            --text-color: #1a1a1a;
+            --accent-color: #007bff;
+            --secondary-bg: #f4f4f4;
+            --card-bg: #ffffff;
+            --border-color: #ddd;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --accent-color: #3792ff;
+            --secondary-bg: #1e1e1e;
+            --card-bg: #252525;
+            --border-color: #333;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
-            line-height: 1.6;
+            color: var(--text-color);
             margin: 0;
             padding: 0;
+            transition: all 0.3s ease;
+            line-height: 1.6;
         }
 
+        /* Hero Section */
         header {
-            background-color: var(--accent-blue);
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1350&q=80'); /* Professional shop floor placeholder */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             color: white;
-            padding: 2rem;
             text-align: center;
         }
 
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--secondary-bg);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.3s;
+        }
+
+        nav a.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Theme Toggle Button */
+        #theme-toggle {
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            background: var(--text-color);
+            color: var(--bg-color);
+            font-weight: bold;
+        }
+
+        /* Content Sections */
         .container {
             max-width: 900px;
-            margin: auto;
-            padding: 20px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 80px;
         }
 
         h2 {
-            color: var(--accent-blue);
-            border-bottom: 2px solid var(--accent-blue);
-            padding-bottom: 10px;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
         }
 
-        /* The Journey Timeline */
+        /* Journey Timeline */
         .timeline {
             position: relative;
-            margin: 40px 0;
             padding-left: 40px;
-            border-left: 3px solid var(--accent-blue);
         }
 
         .timeline-item {
-            margin-bottom: 50px;
             position: relative;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -48px;
-            top: 0;
+            left: -40px;
+            top: 25px;
             width: 15px;
             height: 15px;
-            background: var(--accent-blue);
+            background: var(--accent-color);
             border-radius: 50%;
         }
 
         .timeline-logo {
-            max-width: 120px;
-            height: auto;
-            display: block;
+            height: 40px;
             margin-bottom: 10px;
-            border: 1px solid #ddd;
-            padding: 5px;
-            background: white;
+            display: block;
         }
 
-        .project-card {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+        /* Contact Icons */
+        .contact-links a {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: gray;
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Alex Castillo</h1>
-    <p>Aspiring Design Engineer | Mechanical Engineering Student</p>
-</header>
+    <header id="home">
+        <h1>ALEX CASTILLO</h1>
+        <p>Mechanical Engineering Portfolio</p>
+    </header>
 
-<div class="container">
-    
-    <section id="journey">
-        <h2>The Journey</h2>
-        <div class="timeline">
-            
-            <div class="timeline-item">
-                <img src="https://offices.austincc.edu/college-relations-and-marketing/wp-content/uploads/sites/2/2022/08/logo_horizontal.jpg" alt="ACC Logo" class="timeline-logo">
-                <h3>Austin Community College</h3>
-                <p>Developing core engineering foundations in Math, Physics, and CAD Design. Current focus: College Algebra for Pre-Calculus and U.S. History.</p>
+    <nav>
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle">Mode</button>
+    </nav>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>Summary</h2>
+            <p>Mechanical Engineering student at Austin Community College with a background in high-volume manufacturing at Tesla. Passionate about design engineering, robotics, and additive manufacturing. Currently seeking a Summer 2026 internship to apply technical skills in a design-focused environment.</p>
+        </section>
+
+        <section id="experience">
+            <h2>Experience / Journey</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <strong>Tesla | Production Associate</strong>
+                    <p>Austin, TX | Jan 2025 - Present</p>
+                    <p>Contributing to manufacturing flow and quality standards in a fast-paced production environment.</p>
+                </div>
+
+                <div class="timeline-item">
+                    <strong>Austin Community College</strong>
+                    <p>Mechanical Engineering Student</p>
+                    <p>Focusing on CAD design, mechanical systems, and advanced mathematics.</p>
+                </div>
+
             </div>
+        </section>
 
+        <section id="projects">
+            <h2>Projects</h2>
             <div class="timeline-item">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Tesla_logo.png" alt="Tesla Logo" class="timeline-logo">
-                <h3>Tesla - Production Associate</h3>
-                <p>Hands-on experience in high-volume manufacturing and automated production lines. Contributing to the future of sustainable energy at Giga Texas.</p>
+                <h3>6-DOF Robotic Arm</h3>
+                <p>Designed and fabricated a 6-axis robotic arm using SolidWorks and a Creality K1 Max 3D printer. Focused on tolerance management, servo integration, and structural integrity.</p>
             </div>
+        </section>
 
-            <div class="timeline-item">
-                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a1/H-E-B_logo.svg/960px-H-E-B_logo.svg.png" alt="HEB Logo" class="timeline-logo">
-                <h3>H-E-B</h3>
-                <p>Developed professional communication and fast-paced operational skills within a major Texas-based supply chain.</p>
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <div class="contact-links">
+                <a href="mailto:alexleecastillo@gmail.com">Email Me</a>
+                <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank">LinkedIn</a>
             </div>
+        </section>
 
-            <div class="timeline-item">
-                <img src="https://assets.stickpng.com/images/61fa8c05eec4c40004bacd46.png" alt="Domino's Logo" class="timeline-logo">
-                <h3>Domino's</h3>
-                <p>Early experience in customer service and logistical coordination.</p>
-            </div>
+    </div>
 
-        </div>
-    </section>
+    <footer>
+        <p>@2026 Alex Castillo Summer Internship Hunt</p>
+    </footer>
 
-    <section id="projects">
-        <h2>Featured Technical Project</h2>
-        <div class="project-card">
-            <h3>6-DOF Robotic Arm</h3>
-            <p>Currently designing and fabricating a 6-axis robotic arm using **SolidWorks** for CAD modeling and a **Creality K1 Max** for high-precision 3D printing.</p>
-        </div>
-    </section>
+    <script>
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
 
-</div>
+        toggleBtn.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                toggleBtn.innerText = 'Dark Mode';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                toggleBtn.innerText = 'Light Mode';
+            }
+        });
 
+        // Navigation Highlight Logic
+        const navLinks = document.querySelectorAll('nav a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            document.querySelectorAll('section, header').forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,166 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Castillo | Mechanical Engineering Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #ffffff;
-            --text-color: #1a1a1a;
-            --accent-color: #007bff;
-            --secondary-bg: #f4f4f4;
-            --card-bg: #ffffff;
-            --border-color: #000000;
-        }
-
-        [data-theme="dark"] {
-            --bg-color: #121212;
-            --text-color: #f0f0f0;
-            --accent-color: #3792ff;
-            --secondary-bg: #1e1e1e;
-            --card-bg: #252525;
-            --border-color: #ffffff;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0; padding: 0;
-            transition: all 0.3s ease;
-            scroll-behavior: smooth;
-        }
-
-        /* Hero */
-        header {
-            height: 35vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&w=1500&q=80');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
-            text-align: center;
-        }
-
-        header h1 { font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
-
-        /* Navigation */
-        nav {
-            background: var(--secondary-bg); padding: 12px 0; position: sticky; top: 0;
-            z-index: 1000; display: flex; justify-content: center; align-items: center; gap: 10px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        nav a { text-decoration: none; color: var(--text-color); font-weight: 700; padding: 8px 16px; border-radius: 30px; transition: 0.3s; cursor: pointer; }
-        nav a.active { background: var(--accent-color); color: white; }
-
-        #theme-toggle { padding: 6px 14px; border-radius: 50px; border: 2px solid var(--accent-color); background: transparent; color: var(--accent-color); cursor: pointer; font-weight: bold; margin-left: 20px; }
-
-        /* Layout */
-        .container { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        section { display: none; }
-        section.active { display: block; animation: fadeIn 0.4s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        .card { background: var(--card-bg); padding: 30px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 30px; line-height: 1.8; text-align: left; }
-        h2 { text-align: center; margin-bottom: 30px; }
-
-        /* Buttons */
-        .bottom-actions { display: flex; justify-content: center; gap: 15px; margin: 40px 0; }
-        .btn { padding: 10px 22px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: 0.3s; cursor: pointer; }
-        .btn-primary { background: var(--accent-color); color: white; border: none; }
-        .btn-outline { border: 2px solid var(--accent-color); color: var(--accent-color); background: transparent; }
-
-        footer { text-align: center; padding: 40px 0; color: #888; border-top: 1px solid var(--border-color); }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Castillo | Mechanical Engineering Portfolio</title>
+  <meta
+    name="description"
+    content="Portfolio for Alex Castillo, a mechanical engineering student with manufacturing, robotics, prototyping, and automation experience."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">AC</span>
+          <span class="brand-text">Alex Castillo</span>
+        </div>
+        <div class="nav-links">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
 
-    <header>
-        <h1>ALEX CASTILLO</h1>
-        <p>Mechanical Engineering Portfolio</p>
+      <section class="hero-grid">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Mechanical Engineering Student / Manufacturing / Automation</p>
+          <h1>Building practical systems with engineering discipline and hands-on execution.</h1>
+          <p class="lede">
+            I am an Austin-based mechanical engineering student focused on manufacturing, robotics,
+            prototyping, and process improvement. My background blends production floor experience,
+            technical training, and leadership in fast-paced environments.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View Projects</a>
+            <a class="button button-secondary" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <aside class="hero-card reveal reveal-delay-1">
+          <div class="hero-card-label">Quick Snapshot</div>
+          <ul class="snapshot-list">
+            <li>
+              <span class="snapshot-title">Education</span>
+              <span class="snapshot-copy">B.S. Mechanical Engineering, Austin Community College</span>
+            </li>
+            <li>
+              <span class="snapshot-title">Current Role</span>
+              <span class="snapshot-copy">Production Associate at Tesla</span>
+            </li>
+            <li>
+              <span class="snapshot-title">Focus Areas</span>
+              <span class="snapshot-copy">Automation, CAD, prototyping, quality, process improvement</span>
+            </li>
+            <li>
+              <span class="snapshot-title">Location</span>
+              <span class="snapshot-copy">Austin, Texas</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
     </header>
 
-    <nav>
-        <a href="#home" class="nav-btn active" onclick="showSection('home')">Home</a>
-        <a href="#about" class="nav-btn" onclick="showSection('about')">About Me</a>
-        <a href="#projects" class="nav-btn" onclick="showSection('projects')">Projects</a>
-        <a href="#contact" class="nav-btn" onclick="showSection('contact')">Contact Me</a>
-        <button id="theme-toggle">🌓 Mode</button>
-    </nav>
-
-    <div class="container">
-        <section id="home" class="active">
-            <h2>Summary</h2>
-            <div class="card">
-                <p>Aspiring Mechanical Engineer with a focus on design, robotics, and advanced manufacturing. Currently bridging the gap between theoretical engineering and real-world production through roles at Tesla and hands-on maker projects.</p>
-            </div>
-            
-            <h2>Work Experience</h2>
-            <div class="card">
-                <p><strong>Tesla | Production Associate</strong></p>
-                <p>Jan 2025 - Present | Austin, TX</p>
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
-                <p><strong>H-E-B | Customer Service</strong></p>
-                <p>Austin, TX</p>
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;">
-                <p><strong>Domino's | Service/Logistics</strong></p>
-                <p>Austin, TX</p>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="card">
-                <p>Hi there! My name is Alex Castillo and I'm currently a mechanical engineering student.</p>
-                <p>My interest in engineering started with a passion for how things work—taking apart mechanical systems to understand their internal logic. Currently, I'm harnessing my passion for engineering by designing and building a 6-DOF robotic arm using SolidWorks and advanced 3D printing.</p>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Technical Projects</h2>
-            <div class="card">
-                <h3>6-DOF Robotic Arm</h3>
-                <p>Designed and fabricated a fully articulated robotic arm. Key focuses included motor torque calculations, tolerance management for 3D printed components, and structural design in SolidWorks.</p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <div class="card">
-                <form action="https://formspree.io/f/alex.castillo3@g.austincc.edu" method="POST">
-                    <input type="text" name="name" placeholder="Name" required>
-                    <input type="email" name="email" placeholder="Email" required>
-                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                    <button type="submit" class="btn btn-primary" style="width:100%; margin-top:10px;">Send Message</button>
-                </form>
-            </div>
-        </section>
-
-        <div class="bottom-actions">
-            <a href="resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
-            <a href="https://www.linkedin.com/in/alex-lee-castillo-57551421b/" target="_blank" class="btn btn-outline">LinkedIn</a>
+    <main>
+      <section class="section reveal" id="about">
+        <div class="section-heading">
+          <p class="section-kicker">About</p>
+          <h2>Engineering mindset, production awareness, and a builder's approach.</h2>
         </div>
-    </div>
+        <div class="about-panel">
+          <p>
+            My work so far has centered on learning by building. Through manufacturing roles at Tesla,
+            engineering coursework, and independent projects, I have developed a foundation in
+            troubleshooting, technical communication, rapid prototyping, and systems thinking.
+          </p>
+          <p>
+            I am especially interested in roles where mechanical design, automation, and real-world
+            problem solving overlap. I enjoy turning concepts into working systems and improving the
+            reliability and usability of the tools people depend on.
+          </p>
+        </div>
+      </section>
 
-    <footer>
-        <p>@2026 Alex Castillo Summer Internship Hunt</p>
+      <section class="section" id="experience">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Experience</p>
+          <h2>From high-volume operations to advanced manufacturing environments.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <div class="timeline-meta">
+              <span class="timeline-date">03/2025 - Current</span>
+              <span class="timeline-place">Austin, TX</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Production Associate</h3>
+              <p class="timeline-company">Tesla</p>
+              <ul>
+                <li>Collaborate with engineering teams to support high-tech automotive manufacturing through equipment troubleshooting, quality assurance, and workflow optimization.</li>
+                <li>Collaborate with engineers and technicians on troubleshooting and continuous improvement initiatives.</li>
+                <li>Help maintain strict production standards in a fast-moving manufacturing environment.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal reveal-delay-1">
+            <div class="timeline-meta">
+              <span class="timeline-date">01/2025 - 03/2025</span>
+              <span class="timeline-place">Austin, TX</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Manufacturing Development Intern</h3>
+              <p class="timeline-company">Tesla</p>
+              <ul>
+                <li>Completed training in electronics, pneumatics, PLCs, and automation fundamentals.</li>
+                <li>Gained hands-on knowledge of manufacturing systems, terminology, and safety protocols.</li>
+                <li>Participated in lab projects and simulations focused on real-world technical applications.</li>
+                <li>Built foundational skills in teamwork, problem solving, and technical communication.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal reveal-delay-2">
+            <div class="timeline-meta">
+              <span class="timeline-date">05/2022 - 01/2025</span>
+              <span class="timeline-place">Austin, TX</span>
+            </div>
+            <div class="timeline-content">
+              <h3>Senior Manager</h3>
+              <p class="timeline-company">Domino's</p>
+              <ul>
+                <li>Supervised and delegated tasks to team members during high-volume shifts.</li>
+                <li>Trained new employees and managed scheduling to ensure smooth operations.</li>
+                <li>Balanced time management, inventory control, and equipment upkeep under pressure.</li>
+                <li>Developed leadership, delegation, and problem solving skills in a fast-paced environment.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Projects</p>
+          <h2>Selected technical builds across robotics, fabrication, and connected systems.</h2>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card reveal">
+            <p class="project-tag">Robotics Design</p>
+            <h3>6 DOF Robotic Arm Development</h3>
+            <p>
+              Designed and engineered a six-degree-of-freedom robotic arm focused on structural integrity,
+              joint articulation, and precise movement.
+            </p>
+            <ul>
+              <li>Utilized SolidWorks for complex mechanical assembly work.</li>
+              <li>Performed iterative design cycles to optimize component weight.</li>
+              <li>Executed rapid prototyping of custom parts while managing high-tolerance fits and material selection.</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal reveal-delay-1">
+            <p class="project-tag">Fabrication Systems</p>
+            <h3>3D Printer Environment & Ventilation Integration</h3>
+            <p>
+              Integrated a specialized filtration system with a 3D printer enclosure to manage VOCs
+              and ultrafine particles while maintaining print stability.
+            </p>
+            <ul>
+              <li>Analyzed and optimized airflow paths for stable internal print temperatures and effective fume exhaust.</li>
+              <li>Integrated filtration hardware into the enclosure system.</li>
+              <li>Performed routine maintenance and troubleshooting to maintain dependable operation during long-duration prints.</li>
+            </ul>
+          </article>
+
+          <article class="project-card reveal reveal-delay-2">
+            <p class="project-tag">IoT Security</p>
+            <h3>Integrated Smart Lock Pharmacy Cabinet</h3>
+            <p class="project-role">Lead Systems &amp; Mechanical Designer</p>
+            <p>
+              Led the systems and mechanical design of a secure cabinet combining hardware integration,
+              access control logic, and cloud-connected authentication for medication pickup.
+            </p>
+            <ul>
+              <li>Designed and assembled the cabinet using reed switches for real-time door-state monitoring and tamper detection.</li>
+              <li>Engineered a custom web interface that generated unique 4-digit MFA passcodes through an SMS API.</li>
+              <li>Programmed Arduino- and relay-based access control with user-specific codes and a fail-safe master override system.</li>
+              <li>Managed the full prototype lifecycle from physical housing assembly to cloud-hosted logic.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Skills</p>
+          <h2>Technical tools and practical strengths.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <h3>Software & Programming</h3>
+            <p>SolidWorks, Python, AutoCAD, Arduino IDE, GitHub, API integration, MS Office Suite, Google Workspace</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-1">
+            <h3>Manufacturing & Industrial</h3>
+            <p>PLC fundamentals, electronics, pneumatics, automation, quality control, RCA, 5S methodology</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-2">
+            <h3>Engineering Processes</h3>
+            <p>Rapid prototyping, IoT prototyping, CAD drafting, iterative design, mechanical assembly, process improvement, lean manufacturing</p>
+          </article>
+          <article class="skill-card reveal reveal-delay-3">
+            <h3>Professional Skills</h3>
+            <p>Technical communication, team leadership, time management, system troubleshooting, problem solving</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-heading reveal">
+          <p class="section-kicker">Education</p>
+          <h2>Current studies and academic foundation.</h2>
+        </div>
+        <div class="education-card reveal">
+          <h3>Bachelor of Science in Mechanical Engineering</h3>
+          <p>Austin Community College / Austin, Texas</p>
+          <p>Freshman / Expected graduation 2029 / GPA: 3.3</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer reveal" id="contact">
+      <div>
+        <p class="section-kicker">Contact</p>
+        <h2>Let's build something useful.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:alexleecastillo@gmail.com">alexleecastillo@gmail.com</a>
+        <a href="tel:5129813936">512-981-3936</a>
+        <a href="https://www.linkedin.com/in/alex-castillo-a56338315/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <span class="contact-note">GitHub link can be added once you send it.</span>
+      </div>
     </footer>
+  </div>
 
-    <script>
-        function showSection(sectionId) {
-            document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            document.querySelector(`[href="#${sectionId}"]`).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-        const toggleBtn = document.getElementById('theme-toggle');
-        const body = document.body;
-        toggleBtn.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            body.setAttribute('data-theme', currentTheme === 'light' ? 'dark' : 'light');
-        });
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
